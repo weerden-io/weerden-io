@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tippiq.component.scss']
 })
 export class TippiqComponent implements OnInit {
-  techStack = ['AngularJS', 'NodeJS', 'PostgreSQL'];
+  techStack = ['AngularJS', 'NodeJS', 'Express', 'PostgreSQL'];
 
   constructor() {
   }
