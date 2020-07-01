@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vattenfall.component.scss']
 })
 export class VattenfallComponent implements OnInit {
+  techStack = ['TypeScript', 'Angular', 'nx', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'];
 
   constructor() { }
 

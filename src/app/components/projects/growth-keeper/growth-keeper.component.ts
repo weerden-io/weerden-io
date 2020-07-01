@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./growth-keeper.component.scss']
 })
 export class GrowthKeeperComponent implements OnInit {
+  techStack = ['Angular', 'MongoDB', 'Express', 'NodeJS', 'TypeScript'];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

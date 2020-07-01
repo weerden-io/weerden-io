@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rabobank.component.scss']
 })
 export class RabobankComponent implements OnInit {
-  techStack = ['TypeScript', 'Angular', 'NodeJS', 'MongoDB', 'ramda', 'redux', 'd3', 'Monorepo', 'AngularJS']
+  techStack = ['TypeScript', 'Angular', 'NodeJS', 'MongoDB', 'ramda', 'redux', 'd3', 'Monorepo', 'AngularJS'];
 
   constructor() {
   }
