@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() {
+  }
+
+  ngOnInit(): void {
     const $ = (window as any).$;
     const jQuery = (window as any).jQuery;
     const GitHubCalendar = (window as any).GitHubCalendar;
@@ -78,9 +81,6 @@ export class HomeComponent implements OnInit {
       new GitHubCalendar("#github-graph", "jimenezweerden");
     });
 
-  }
-
-  ngOnInit(): void {
   }
 
 
