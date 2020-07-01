@@ -1,0 +1,11 @@
+// This css is needed to make the footer sticky and was copied from:
+// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+.container-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
