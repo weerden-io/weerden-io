@@ -7,7 +7,7 @@ import { VattenfallComponent } from './components/projects/vattenfall/vattenfall
 import { GrowthKeeperComponent } from './components/projects/growth-keeper/growth-keeper.component';
 import { TippiqComponent } from './components/projects/tippiq/tippiq.component';
 
-const title = 'Weerden TV';
+const title = 'Weerden.IO';
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full', data: {title}},
   {
