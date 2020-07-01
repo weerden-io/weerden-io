@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-lg-8">
+    <section class="section">
+      <div class="section-inner shadow-sm rounded">
+        <a href class="more-link" backButton>
+          <i class="fas fa-arrow-left"></i> Back
+        </a>
+
+        <h3 class="mt-3">{{title}}</h3>
+
+        <h6 *ngIf="techStack?.length > 0">
+          <span class="tech-badge mr-1 mb-1 badge badge-secondary" alt="" *ngFor="let tech of techStack">{{tech}}</span>
+        </h6>
+      </div>
+    </section>
+  </div>
+</div>
+

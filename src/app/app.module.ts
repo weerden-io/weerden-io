@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProjectsComponent } from './components/projects/projects.component';
+import { ProjectComponent } from './components/projects/project.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,7 @@ import { BackButtonDirective } from './directives/back-button.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectsComponent,
+    ProjectComponent,
     BlogComponent,
     HomeComponent,
     RabobankComponent,
