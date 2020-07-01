@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
 
       $("#rss-feeds").rss(
         //Change this to your own rss feeds
-        "http://www.weerden.tv/blog/feed/",
+        "https://jimenezweerden.wordpress.com/feed/",
 
         {
           // how many entries do you want?
