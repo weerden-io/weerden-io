@@ -26,8 +26,7 @@ jobs:
         run: |
           yarn
           yarn lint
-          yarn test
-
+          yarn test --watch=false
 
 # TODO: e2e
 # yarn e2e
