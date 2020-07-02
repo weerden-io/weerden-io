@@ -2,13 +2,13 @@ import { Directive, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Directive({
-  selector: '[backButton]'
+  selector: '[appBackButton]'
 })
 export class BackButtonDirective {
   constructor(private location: Location) { }
 
   @HostListener('click')
-  onClick() {
+  onClick(): void {
     this.location.back();
   }
 }

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { dependencies, HomeComponent } from './home.component';
+import { noop } from 'rxjs';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,9 +9,11 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [HomeComponent]
     })
-    .compileComponents();
+      .compileComponents();
+
+    spyOn(dependencies, 'GitHubCalendar').and.returnValue(noop);
   }));
 
   beforeEach(() => {

@@ -9,10 +9,10 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router, private titleService: Title,) {
+  constructor(private router: Router, private titleService: Title) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       );
   }
 
-  getTitle(state, parent) {
+  getTitle(state, parent): any[] {
     const data = [];
     if (parent && parent.snapshot.data && parent.snapshot.data.title) {
       data.push(parent.snapshot.data.title);

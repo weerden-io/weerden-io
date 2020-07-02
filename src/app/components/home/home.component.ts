@@ -1,7 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-
+import * as GitHubCalendar from 'github-calendar';
 require('jquery-rss');
-const GitHubCalendar = require('github-calendar');
+
+// expose for testing
+export const dependencies = {
+  GitHubCalendar
+};
 
 @Component({
   selector: 'app-home',
@@ -19,16 +23,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.resetLevelBar();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.animateLevelBar();
   }
 
-  resetLevelBar() {
+  resetLevelBar(): void {
     $('.level-bar-inner').css('width', '0');
   }
 
-  animateLevelBar() {
-    $('.level-bar-inner').each(function () {
+  animateLevelBar(): void {
+    $('.level-bar-inner').each(function() {
       const itemWidth = $(this).data('level');
       $(this).animate({
         width: itemWidth
@@ -36,28 +40,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  initGithubCalendar() {
-    new GitHubCalendar("#github-graph", "jimenezweerden");
+  initGithubCalendar(): void {
+    dependencies.GitHubCalendar('#github-graph', 'jimenezweerden');
   }
 
-  loadRSSFeed() {
+  loadRSSFeed(): void {
     // @ts-ignore
-    $("#rss-feeds").rss(
-      "https://jimenezweerden.wordpress.com/feed/",
+    $('#rss-feeds').rss(
+      'https://jimenezweerden.wordpress.com/feed/',
       {
         limit: 3,
         effect: 'slideFastSynced',
         ssl: true,
-        layoutTemplate: "<div class='items'>{entries}</div>",
+        layoutTemplate: '<div class=\'items\'>{entries}</div>',
         entryTemplate: `
-        <div class="item">
-        <h3 class="title">
-        <a href="{url}" target="_blank">{title}</a>
+        <div class='item'>
+        <h3 class='title'>
+        <a href='{url}' target='_blank'>{title}</a>
         </h3>
         <div>
         <p>{shortBodyPlain}...</p>
-        <a class="more-link" href="{url}" target="_blank">
-        <i class="fas fa-external-link-alt"></i>Read more</a>
+        <a class='more-link' href='{url}' target='_blank'>
+        <i class='fas fa-external-link-alt'></i>Read more</a>
         </div>
         </div>
         `

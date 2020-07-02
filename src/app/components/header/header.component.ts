@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   destroy$ = new Subject();
   isHome: boolean;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events
       .pipe(
         filter((routerEvent) => routerEvent instanceof NavigationEnd),
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((routerEvent: RouterEvent) => this.isHome = routerEvent.url === '/');
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }
