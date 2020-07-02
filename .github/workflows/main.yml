@@ -23,11 +23,12 @@ jobs:
 
       # NOTE: prod. builds and deployments are done via Heroku
       - name: install lint and test
-      - run: yarn
-      - run: yarn lint
-      - run: yarn test
+        run: |
+        yarn
+        yarn lint
+        yarn test
       # TODO: e2e
-      #  run: yarn e2e
+      # yarn e2e
 
 # NOTE: prod. builds and deployments are done via Heroku
 #      - name: Push Build to Releases
