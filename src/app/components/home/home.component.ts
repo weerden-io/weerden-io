@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+
 require('jquery-rss');
 const GitHubCalendar = require('github-calendar');
 
@@ -15,11 +16,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.loadRSSFeed();
     this.initGithubCalendar();
-    $('.level-bar-inner').css('width', '0');
+    this.resetLevelBar();
   }
 
   ngAfterViewInit() {
     this.animateLevelBar();
+  }
+
+  resetLevelBar() {
+    $('.level-bar-inner').css('width', '0');
   }
 
   animateLevelBar() {
@@ -53,11 +58,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
         <p>{shortBodyPlain}...</p>
         <a class="more-link" href="{url}" target="_blank">
         <i class="fas fa-external-link-alt"></i>Read more</a>
-        </div></div>
+        </div>
+        </div>
         `
       }
     );
   }
-
-
 }
