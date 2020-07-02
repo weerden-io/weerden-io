@@ -34,8 +34,7 @@
             ],
             "scripts": [
               "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/github-calendar/dist/github-calendar.min.js"
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
