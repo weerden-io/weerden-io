@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BlogComponent } from './components/blog/blog.component';
 import { HomeComponent } from './components/home/home.component';
 import { RabobankComponent } from './components/projects/rabobank/rabobank.component';
 import { VattenfallComponent } from './components/projects/vattenfall/vattenfall.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
       {path: 'tippiq', component: TippiqComponent, data: {title: 'Tippiq'}},
     ]
   },
-  {path: 'blog', component: BlogComponent, pathMatch: 'full', data: {title: `${title} | Blog`}},
   {path: '**', redirectTo: '/'}
 ];
 
