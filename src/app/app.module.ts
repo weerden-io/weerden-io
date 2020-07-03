@@ -13,7 +13,6 @@ import { GrowthKeeperComponent } from './components/projects/growth-keeper/growt
 import { TippiqComponent } from './components/projects/tippiq/tippiq.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { BackButtonDirective } from './directives/back-button.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TippiqComponent,
     HeaderComponent,
     FooterComponent,
-    BackButtonDirective
   ],
   imports: [
     CommonModule,

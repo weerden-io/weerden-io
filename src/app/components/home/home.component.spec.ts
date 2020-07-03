@@ -13,7 +13,7 @@ describe('HomeComponent', () => {
     })
       .compileComponents();
 
-    spyOn(dependencies, 'GitHubCalendar').and.returnValue(noop);
+    dependencies.GitHubCalendar = noop;
   }));
 
   beforeEach(() => {

@@ -9,12 +9,11 @@ import { Subject } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  destroy$ = new Subject();
+  isHome: boolean;
 
   constructor(private router: Router) {
   }
-
-  destroy$ = new Subject();
-  isHome: boolean;
 
   ngOnInit(): void {
     this.router.events
