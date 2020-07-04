@@ -32,7 +32,9 @@
               </div>
             </div>
 
-            <h3 class="title mb-3"><a routerLink="/projects/vattenfall">Vattenfall - Mijn Vattenfall</a></h3>
+            <h3 (click)="openProject('vattenfall')" class="title mb-3">
+              <span class="link">Vattenfall - Mijn Vattenfall</span>
+            </h3>
 
             <div class="desc text-left">
               <p>At Vattenfall I've worked on the redesign from Nuon to Vattenfall. The redesign contained rebuilding
@@ -145,7 +147,8 @@
           <div class="skillset">
 
             <div class="item">
-              <h3 class="level-title">Javascript & Typescript<span class="level-label" placement="left" ngbTooltip="Frontend & Backend"><i
+              <h3 class="level-title">Javascript & Typescript<span class="level-label" placement="left"
+                                                                   ngbTooltip="Frontend & Backend"><i
                 class="fas fa-info-circle"></i>Expert</span></h3>
               <div class="level-bar">
                 <div class="level-bar-inner" data-level="96%">

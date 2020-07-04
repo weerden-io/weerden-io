@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VattenfallComponent } from '../projects/vattenfall/vattenfall.component';
+
 require('jquery-rss');
 
 // expose for testing
@@ -14,7 +17,7 @@ export const dependencies = {
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -67,5 +70,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
         `
       }
     );
+  }
+
+  openProject(projectName: string): void {
+    const projectMap = {
+      'vattenfall': VattenfallComponent,
+    };
+
+    const modalRef = this.modalService.open(projectMap[projectName]);
+    modalRef.componentInstance.name = projectName;
   }
 }
