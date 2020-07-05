@@ -1,7 +1,13 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { VattenfallComponent } from '../projects/vattenfall/vattenfall.component';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { RabobankComponent } from '../projects/rabobank/rabobank.component';
+import { GrowthKeeperComponent } from '../projects/growth-keeper/growth-keeper.component';
+import { TippiqComponent } from '../projects/tippiq/tippiq.component';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 require('jquery-rss');
 
@@ -15,9 +21,19 @@ export const dependencies = {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  modalRef: NgbModalRef;
+  destroy$ = new Subject();
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router) {
+    route.queryParams
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params: Params) => {
+        const projectComponent = this.projectMap[params?.project];
+        projectComponent
+          ? this.openProjectDialog(projectComponent)
+          : this.removeQueryParams();
+      });
   }
 
   ngOnInit(): void {
@@ -72,12 +88,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
     );
   }
 
-  openProject(projectName: string): void {
-    const projectMap = {
-      'vattenfall': VattenfallComponent,
-    };
-
-    const modalRef = this.modalService.open(projectMap[projectName]);
-    modalRef.componentInstance.name = projectName;
+  openProjectDialog(projectComponent: Component): void {
+   this.modalRef =  this.modalService.open(projectComponent);
+    this.modalRef.result.then(
+      () => this.removeQueryParams(),
+      () => this.removeQueryParams()
+    );
   }
+
+  removeQueryParams(): void {
+    this.modalRef?.close();
+    this.router.navigate(['.'], {relativeTo: this.route});
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private projectMap: { [key: string]: any } = {
+    'vattenfall': VattenfallComponent,
+    'rabobank': RabobankComponent,
+    'growth-keeper': GrowthKeeperComponent,
+    'tippiq': TippiqComponent,
+  };
 }

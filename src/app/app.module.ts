@@ -14,6 +14,7 @@ import { TippiqComponent } from './components/projects/tippiq/tippiq.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SafePipeModule } from 'safe-pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    SafePipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+export interface WeerdenProject {
+  title: string;
+  techStack?: string[];
+  description: string;
+  impressions?: {
+    imageUrl: string;
+    alt: string;
+  }[];
+  impressionVideo?: string;
+  url?: string;
+}
 
 @Component({
   selector: 'app-project',
@@ -6,13 +19,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent implements OnInit {
-  @Input() title: string;
-  @Input() techStack?: string[];
+  @Input() project: WeerdenProject;
 
-  constructor() {
+  constructor(public activeModal: NgbActiveModal) {
   }
 
   ngOnInit(): void {
+  }
+
+  close(reason: string): void {
+    this.activeModal.close(reason);
   }
 
 }

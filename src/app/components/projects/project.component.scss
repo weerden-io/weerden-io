@@ -5,5 +5,13 @@
 }
 
 .project-section-inner {
-  padding: 15px;
+  label {
+    font-style: italic;
+    color: darken($color, 30%);
+    border-bottom: 1px dotted darken($color, 30%);
+  }
+
+  img {
+    width: 100% !important;
+  }
 }
