@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   openProjectDialog(projectComponent: Component): void {
-   this.modalRef =  this.modalService.open(projectComponent);
+    this.modalRef = this.modalService.open(projectComponent);
     this.modalRef.result.then(
       () => this.removeQueryParams(),
       () => this.removeQueryParams()

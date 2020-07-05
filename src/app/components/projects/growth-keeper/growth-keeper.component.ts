@@ -15,7 +15,7 @@ export class GrowthKeeperComponent implements OnInit {
                 ranking. Though it's not fully operational and up to date anymore, it's still a project I very much enjoyed
                 doing. 😄`,
     url: 'https://growth-keeper.herokuapp.com/'
-  }
+  };
 
   constructor() {
   }

@@ -3,8 +3,7 @@
   "rules": {
     "align": {
       "options": [
-        "parameters",
-        "statements"
+        "parameters"
       ]
     },
     "array-type": false,
@@ -45,7 +44,7 @@
       140
     ],
     "member-ordering": [
-      true,
+      false,
       {
         "order": [
           "static-field",
