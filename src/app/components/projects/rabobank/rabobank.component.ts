@@ -13,7 +13,7 @@ export class RabobankComponent implements OnInit {
     description: `At the Rabobank I've worked on the investment module/sub-application within the mobile
                 banking application. At first the investment application was a seperate hybrid app in the app store.
                 This was later merged into the general mobile banking app and while merging the application almost all
-                features were rebuilt.`,
+                features were rebuilt. Most definitely one of my favorite projects!`,
     impressionVideo: 'https://www.youtube.com/embed/5lCqExOBUXg'
   };
 
