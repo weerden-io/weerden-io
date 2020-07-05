@@ -1,0 +1,38 @@
+on: push
+name: lint-and-test
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # NOTE: prod. builds and deployments are done via Heroku
+      - name: install lint and test
+        run: |
+          yarn
+          yarn lint
+          yarn test --watch=false
+
+# TODO: e2e
+# yarn e2e
+# NOTE: prod. builds and deployments are done via Heroku
+#      - name: Push Build to Releases
+#        uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: "dist/weerden-io/*"
+#          token: ${{ secrets.TOKEN }}

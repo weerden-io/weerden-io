@@ -1,0 +1,252 @@
+<div class="row">
+  <div class="primary col-lg-8 col-12">
+    <section class="about section">
+      <div class="section-inner shadow-sm rounded">
+        <h2 class="heading">About Me</h2>
+        <div class="content">
+          <p>
+            Hello there. My name is Jimenez Weerden and I’m a fullstack Javascript developer from
+            Amsterdam. I’ll use this website to post my work, experiment with new tech and blog about the things I have
+            read and like. Have a
+            look around!
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="latest section">
+      <div class="section-inner shadow-sm rounded">
+        <h2 class="heading">Latest Projects</h2>
+        <div class="content">
+
+          <div class="item featured text-center">
+
+            <div class="featured-image has-ribbon">
+              <a routerLink="" [queryParams]="{project: 'vattenfall'}">
+                <img class="img-fluid project-image rounded shadow-sm"
+                     src="./assets/images/projects/vattenfall/vattenfall.png" alt="Vattenfall"/>
+              </a>
+              <div class="ribbon">
+                <div class="text">New</div>
+              </div>
+            </div>
+
+            <h3 routerLink="" [queryParams]="{project: 'vattenfall'}" class="title mb-3">
+              <span class="link">Vattenfall - Mijn Vattenfall</span>
+            </h3>
+
+            <div class="desc text-left">
+              <p>At Vattenfall I've worked on the redesign from Nuon to Vattenfall. The redesign contained rebuilding
+                the whole Mijn Vattenfall application from AngularJS to Angular and changing the look and feel from the
+                old Nuon style to that of Vattenfall..</p>
+            </div>
+
+          </div>
+
+          <hr class="divider"/>
+
+          <div class="item row">
+            <a class="col-md-4 col-12" routerLink="" [queryParams]="{project: 'rabobank'}">
+              <img class="img-fluid project-image rounded shadow-sm" src="assets/images/projects/rabobank/rabobank.png"
+                   alt="Rabobank"/>
+            </a>
+            <div class="desc col-md-8 col-12">
+              <h3 class="title">
+                <a routerLink="" [queryParams]="{project: 'rabobank'}">Rabobank - Mobile banking app (investment
+                  module)</a>
+              </h3>
+              <p class="mb-2">At the Rabobank I've worked on the investment module/sub-application within the mobile
+                banking application.</p>
+              <p>
+                <a class="more-link" routerLink="" [queryParams]="{project: 'rabobank'}">
+                  <i class="fas fa-external-link-alt"></i>Find out more
+                </a>
+              </p>
+            </div><!--//desc-->
+          </div><!--//item-->
+
+          <div class="item row">
+            <a class="col-md-4 col-12" routerLink="" [queryParams]="{project: 'growth-keeper'}">
+              <img class="img-fluid project-image rounded shadow-sm"
+                   src="assets/images/projects/growth-keeper/growth-keeper.jpeg"
+                   alt="Growth keeper"/>
+            </a>
+            <div class="desc col-md-8 col-12">
+              <h3 class="title">
+                <a routerLink="" [queryParams]="{project: 'growth-keeper'}">Growth Keeper</a>
+              </h3>
+              <p class="mb-2">Growth keeper was a side project I did in the winter of 2017 when the crypto market hype
+                was at it's peak.</p>
+              <p>
+                <a class="more-link" routerLink="" [queryParams]="{project: 'growth-keeper'}">
+                  <i class="fas fa-external-link-alt"></i>Find out more
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="item row">
+            <a class="col-md-4 col-12" routerLink="" [queryParams]="{project: 'tippiq'}">
+              <img class="img-fluid project-image rounded shadow-sm" src="assets/images/projects/tippiq/tippiq.png"
+                   alt="Tippiq"/>
+            </a>
+            <div class="desc col-md-8 col-12">
+              <h3 class="title">
+                <a routerLink="" [queryParams]="{project: 'tippiq'}">Tippiq</a>
+              </h3>
+              <p class="mb-2">At the Tippiq website you could see what was going on in your neighbourhood.
+                The job was fullstack though I mainly worked on the frontend of the webapp.</p>
+              <p>
+                <a class="more-link" routerLink="" [queryParams]="{project: 'tippiq'}">
+                  <i class="fas fa-external-link-alt"></i>Find out more
+                </a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="github section">
+      <div class="section-inner shadow-sm rounded">
+        <h2 class="heading">My GitHub</h2>
+        <div id="github-graph" class="github-graph"></div>
+
+      </div>
+    </section>
+  </div>
+
+  <div class="secondary col-lg-4 col-12">
+    <aside class="info aside section">
+      <div class="section-inner shadow-sm rounded">
+        <h2 class="heading sr-only">Basic Information</h2>
+        <div class="content">
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>Amsterdam, NL</li>
+            <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a
+              href="mailto:jimenez.weerden@gmail.com">jimenez.weerden@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="skills aside section">
+      <div class="section-inner shadow-sm rounded">
+        <h2 class="heading">Skills</h2>
+        <div class="content">
+          <p class="intro">
+            I have worked with many different technologies and am still eager to learn and try out new things.
+            The technologies listed below are the ones I've worked with the most.</p>
+          <div class="skillset">
+
+            <div class="item">
+              <h3 class="level-title">Javascript & Typescript<span class="level-label" placement="left"
+                                                                   ngbTooltip="Frontend & Backend"><i
+                class="fas fa-info-circle"></i>Expert</span></h3>
+              <div class="level-bar">
+                <div class="level-bar-inner" data-level="96%">
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">Angular<span class="level-label">Expert</span></h3>
+              <div class="level-bar">
+                <div class="level-bar-inner" data-level="96%">
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">HTML5, CSS3, SASS &amp; LESS<span class="level-label">Expert</span>
+              </h3>
+              <div class="level-bar">
+                <div class="level-bar-inner" data-level="96%">
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">NodeJS<span class="level-label">Expert</span>
+              </h3>
+              <div class="level-bar">
+                <div class="level-bar-inner" data-level="85%">
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">React<span class="level-label">Expert</span></h3>
+              <div class="level-bar">
+                <div class="level-bar-inner" data-level="80%">
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <h3 class="level-title">Java<span class="level-label" placement="left" ngbTooltip="Small implementations"><i
+                class="fas fa-info-circle"></i>Intermediate</span></h3>
+              <div class="level-bar">
+                <div class="level-bar-inner" data-level="40%">
+                </div>
+              </div>
+            </div>
+
+            <p><a class="more-link" href="https://www.github.com/jimenezweerden" target="_blank"><i
+              class="fas fa-external-link-alt"></i>More on GitHub</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="languages aside section">
+      <div class="section-inner shadow-sm rounded">
+        <h2 class="heading">Languages</h2>
+        <div class="content">
+          <ul class="list-unstyled">
+            <li class="item">
+              <span class="title"><strong>Dutch: </strong></span>
+              <span class="level">Native Speaker
+                  <br class="visible-xs"/>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  </span>
+            </li>
+            <li class="item">
+              <span class="title"><strong>English: </strong></span>
+              <span class="level">Excellent
+                  <br class="visible-sm visible-xs"/>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="blog aside section">
+      <div class="section-inner shadow-sm rounded">
+        <h2 class="heading">Latest Blog Posts</h2>
+
+        <div id="rss-feeds" class="content"></div>
+
+        <hr class="divider">
+        <a class="mt-1 mb-3 btn btn-cta-primary" href="https://jimenezweerden.wordpress.com" target="_blank">
+          <i class="mr-1 fas fa-external-link-alt"></i>Visit blog
+        </a>
+
+      </div>
+    </aside>
+
+  </div>
+</div>

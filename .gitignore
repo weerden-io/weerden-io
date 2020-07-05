@@ -14,6 +14,13 @@
 chrome-profiler-events*.json
 speed-measure-plugin*.json
 
+# Environment variables
+.env*
+!.env*.example
+
+# Deno plugins
+.deno_plugins
+
 # IDEs and editors
 /.idea
 .project

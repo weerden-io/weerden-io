@@ -1,0 +1,27 @@
+@import '../scss/mixins';
+
+// This css is needed to make the footer sticky and was copied from:
+// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+.container-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
+.ie-banner {
+  display: none;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 22px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+
+  @include ie-only {
+    display: block !important;
+  }
+}

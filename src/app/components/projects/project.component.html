@@ -1,0 +1,49 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{project?.title}}</h3>
+  <button type="button" class="close" aria-label="Close" (click)="close('Close click')">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </button>
+</div>
+<div class="modal-body">
+  <section class="section">
+    <div class="project-section-inner">
+      <div *ngIf="project?.techStack?.length > 0">
+        <label>Tech stack:</label>
+        <h5>
+          <span class="tech-badge mr-2 mb-2 badge badge-secondary" alt="" *ngFor="let tech of project.techStack">{{tech}}</span>
+        </h5>
+      </div>
+
+
+      <label>Description:</label>
+      <p>{{project?.description}}</p>
+
+      <div *ngIf="project?.impressions?.length > 0">
+        <label>Impressions:</label>
+        <ngb-carousel>
+          <ng-template ngbSlide *ngFor="let impression of project.impressions">
+            <div class="project-img-wrapper">
+              <img [src]="impression.imageUrl" [alt]="impression.alt">
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+
+      <div *ngIf="project?.impressionVideo">
+        <label>Impression:</label>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" [src]="project.impressionVideo | safe: 'resourceUrl'" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div *ngIf="project?.url">
+        <label>Website:</label>
+        <p>
+          <a class="more-link" [href]="project.url" target="_blank">
+            {{project.url}}
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

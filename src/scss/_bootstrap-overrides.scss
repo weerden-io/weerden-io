@@ -1,0 +1,25 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+.modal-dialog {
+  @include media-breakpoint-up(md) {
+    max-width: 750px;
+  }
+
+  .modal-header {
+
+    .close {
+      font-size: 28px;
+      padding: 5px 15px;
+    }
+
+    button[aria-label="Close"]:focus {
+      outline: none;
+    }
+  }
+
+  .modal-content {
+    border: 0;
+  }
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "weerden-tv": {
+    "weerden-io": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/weerden-tv",
+            "outputPath": "dist/weerden-io",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/scss/styles.scss",
+              "node_modules/github-calendar/dist/github-calendar.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@fortawesome/fontawesome-free/js/all.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -66,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "weerden-tv:build"
+            "browserTarget": "weerden-io:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "weerden-tv:build:production"
+              "browserTarget": "weerden-io:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "weerden-tv:build"
+            "browserTarget": "weerden-io:build"
           }
         },
         "test": {
@@ -92,7 +97,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/scss/styles.scss"
             ],
             "scripts": []
           }
@@ -114,15 +119,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "weerden-tv:serve"
+            "devServerTarget": "weerden-io:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "weerden-tv:serve:production"
+              "devServerTarget": "weerden-io:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "weerden-tv"
+    }
+  },
+  "defaultProject": "weerden-io"
 }
