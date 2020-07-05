@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { ProjectComponent } from './project.component';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 describe('ProjectsComponent', () => {
   let component: ProjectComponent;
@@ -8,9 +10,11 @@ describe('ProjectsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectComponent ]
+      providers: [NgbActiveModal],
+      declarations: [ProjectComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
