@@ -2,7 +2,7 @@
 
 The weerden.io website!
 
-[![build status](https://github.com/jimenezweerden/weerden-io/workflows/Build_And_Test/badge.svg)](https://github.com/jimenezweerden/weerden-io/actions)
+[![build status](https://github.com/jimenezweerden/weerden-io/workflows/lint-and-test/badge.svg)](https://github.com/jimenezweerden/weerden-io/actions)
 
 ## 
 
