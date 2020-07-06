@@ -28,7 +28,8 @@ export class VattenfallComponent implements OnInit {
         imageUrl: './assets/images/projects/vattenfall/mijn-vattenfall-password-forgotten.png',
         alt: 'Mijn Vattenfall - Password forgotten'
       }
-    ]
+    ],
+    // url: 'https://www.vattenfall.nl/service/mijn-vattenfall'
   };
 
   constructor() {
