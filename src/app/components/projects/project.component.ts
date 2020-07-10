@@ -2,9 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 export interface WeerdenProject {
+  name: string;
   title: string;
+  featured: boolean;
   techStack?: string[];
+  summary: string;
   description: string;
+  featuredImage: string;
   impressions?: {
     imageUrl: string;
     alt: string;
