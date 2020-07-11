@@ -27,12 +27,4 @@ jobs:
           yarn
           yarn lint
           yarn test --watch=false
-
-# TODO: e2e
-# yarn e2e
-# NOTE: prod. builds and deployments are done via Heroku
-#      - name: Push Build to Releases
-#        uses: ncipollo/release-action@v1
-#        with:
-#          artifacts: "dist/weerden-io/*"
-#          token: ${{ secrets.TOKEN }}
+          yarn e2e-ci
