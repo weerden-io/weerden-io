@@ -63,7 +63,7 @@ const growthKeeper: WeerdenProject = {
 
   description: `Growth keeper was a side project I did in the winter of 2017 when the crypto market hype
                 was at it's peak. It's goal was to track and give scores to tokens that moved up in the coinmarketcap
-                ranking. Though it's not fully operational and up to date anymore, it's still a project I very much enjoyed
+                ranking. Though it's not fully operational anymore, it's still a project I very much enjoyed
                 doing. 😄`,
   featuredImage: './assets/images/projects/growth-keeper/growth-keeper.jpeg',
   url: 'https://growth-keeper.herokuapp.com/'
