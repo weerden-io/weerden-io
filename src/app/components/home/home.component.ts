@@ -2,8 +2,8 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+import { from, Subject } from 'rxjs';
 import { ProjectComponent, WeerdenProject } from '../projects/project.component';
 import { projects } from './projects';
 
@@ -93,10 +93,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.modalRef = this.modalService.open(ProjectComponent);
     this.modalRef.componentInstance.project = project;
 
-    this.modalRef.result.then(
-      () => this.removeQueryParams(),
-      () => this.removeQueryParams()
-    );
+    const result$ = from(this.modalRef.result);
+    result$
+      .pipe(take(1))
+      .subscribe(
+        () => this.removeQueryParams(),
+        () => this.removeQueryParams()
+      );
   }
 
   removeQueryParams(): void {
