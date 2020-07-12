@@ -92,7 +92,7 @@ describe('homePage', () => {
     it('should have 2 listed languages', () => {
       cy.get(homePage.listedLanguages).should('have.length', 2);
 
-      cy.get(homePage.listedLanguages).eq(0).should('contain', 'Dutch')
+      cy.get(homePage.listedLanguages).eq(0).should('contain', 'Dutch');
       cy.get(homePage.listedLanguages).eq(1).should('contain', 'English');
     });
   });
