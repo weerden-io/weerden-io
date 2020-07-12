@@ -11,7 +11,10 @@ describe('homePage', () => {
 
   it('should have a header and footer', () => {
     cy.get(header.component).should('exist');
+    cy.get(header.component).should('be.visible');
+
     cy.get(footer.component).should('exist');
+    cy.get(footer.component).should('be.visible');
   });
 
   it(`it should render the 'about me' section`, () => {
@@ -20,9 +23,34 @@ describe('homePage', () => {
     cy.get(`${homePage.aboutMeSection} h2`).should('have.text', 'About Me');
   });
 
-  it(`should have the 'latest projects' section`, () => {
-    cy.get(homePage.latestProjectsSection).should('exist');
-    cy.get(homePage.latestProjectsSection).should('be.visible');
+  describe('projects section', () => {
+    it('should exist', () => {
+      cy.get(homePage.latestProjectsSection).should('exist');
+      cy.get(homePage.latestProjectsSection).should('be.visible');
+    });
+
+    it('should have 1 featured project', () => {
+      cy.get(homePage.featuredProject).should('be.visible');
+    });
+
+    it('should have 3 other project items', () => {
+      cy.get(homePage.projectItems).should('have.length', 3);
+    });
+
+    it('should have "find out more" links', () => {
+      cy.get(homePage.findOutMoreLinks).should('have.length', 3);
+    });
+
+    it('should open and close a dialog containing more information about a project', () => {
+      cy.get(homePage.findOutMoreLinks).eq(0).click();
+
+      cy.get(homePage.dialog).should('exist');
+      cy.get(homePage.dialog).should('be.visible');
+
+      cy.get(homePage.dialogClose).click();
+      cy.get(homePage.dialog).should('not.exist');
+      cy.get(homePage.dialog).should('not.be.visible');
+    });
   });
 
   it(`should have the 'github' section`, () => {
@@ -35,14 +63,38 @@ describe('homePage', () => {
     cy.get(homePage.contactInfoSection).should('be.visible');
   });
 
-  it(`should have the 'skills' section`, () => {
-    cy.get(homePage.skillsSection).should('exist');
-    cy.get(homePage.skillsSection).should('be.visible');
+  describe('skills section', () => {
+    it('should exist', () => {
+      cy.get(homePage.skillsSection).should('exist');
+      cy.get(homePage.skillsSection).should('be.visible');
+    });
+
+    it('should list my skills', () => {
+      cy.get(homePage.skillSet).should('have.length', 6);
+    });
+
+    it('should have 2 tooltip icons', () => {
+      cy.get(homePage.tooltipIcon).should('have.length', 2);
+    });
+
+    it('should have a link pointing to my github profile', () => {
+      cy.get(`${homePage.skillsSection} .more-link`).should('exist');
+      cy.get(`${homePage.skillsSection} .more-link`).should('contain', 'More on GitHub');
+    });
   });
 
-  it(`should have the 'languages' section`, () => {
-    cy.get(homePage.languagesSection).should('exist');
-    cy.get(homePage.languagesSection).should('be.visible');
+  describe('languages section', () => {
+    it('should exist', () => {
+      cy.get(homePage.languagesSection).should('exist');
+      cy.get(homePage.languagesSection).should('be.visible');
+    });
+
+    it('should have 2 listed languages', () => {
+      cy.get(homePage.listedLanguages).should('have.length', 2);
+
+      cy.get(homePage.listedLanguages).eq(0).should('contain', 'Dutch');
+      cy.get(homePage.listedLanguages).eq(1).should('contain', 'English');
+    });
   });
 
   it(`should have the 'blog' section`, () => {
