@@ -29,9 +29,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     route.queryParams
       .pipe(takeUntil(this.destroy$))
       .subscribe((params: Params) => {
-        const projectComponent = this.projects.find(project => project.name === params.project);
-        projectComponent
-          ? this.openProjectDialog(projectComponent)
+        const project = this.projects.find(prjct => prjct.name === params.project);
+        project
+          ? this.openProjectDialog(project)
           : this.removeQueryParams();
       });
   }

@@ -10,7 +10,7 @@
       <div *ngIf="project?.techStack?.length > 0">
         <label>Tech stack:</label>
         <h5>
-          <span class="tech-badge mr-2 mb-2 badge badge-secondary" alt="" *ngFor="let tech of project.techStack">{{tech}}</span>
+          <span class="tech-badge mr-2 mb-2 badge badge-secondary" *ngFor="let tech of project.techStack">{{tech}}</span>
         </h5>
       </div>
 

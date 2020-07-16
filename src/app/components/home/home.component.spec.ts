@@ -21,7 +21,7 @@ describe('HomeComponent', () => {
     techStack: [],
     summary: 'im super duper fake',
     description: 'even more fakeness here',
-    featuredImage: '',
+    featuredImage: 'yes',
   };
 
   beforeEach(async(() => {
