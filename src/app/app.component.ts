@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+  destroy$ = new Subject();
+
   constructor(private router: Router, private titleService: Title) {
   }
 
@@ -16,7 +19,8 @@ export class AppComponent implements OnInit {
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
-        map(() => this.router)
+        map(() => this.router),
+        takeUntil(this.destroy$)
       )
       .subscribe(() => {
           const title = this.getTitle(this.router.routerState, this.router.routerState.root).join(' | ');
@@ -35,5 +39,10 @@ export class AppComponent implements OnInit {
       data.push(...this.getTitle(state, state.firstChild(parent)));
     }
     return data;
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
