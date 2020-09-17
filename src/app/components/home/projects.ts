@@ -5,7 +5,7 @@ const vattenfall: WeerdenProject = {
   title: 'Vattenfall - Mijn Vattenfall',
   featured: true,
 
-  techStack: ['TypeScript', 'Angular', 'nx', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'],
+  techStack: ['TypeScript', 'Angular 8, 9 & 10', 'nx', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'],
 
   summary: `At Vattenfall I've worked on the redesign from Nuon to Vattenfall. The redesign contained rebuilding
                 the whole Mijn Vattenfall application from AngularJS to Angular and changing the look and feel from the
@@ -39,7 +39,7 @@ const rabobank: WeerdenProject = {
   title: 'Rabobank - Mobile banking app (investment module)',
   featured: false,
 
-  techStack: ['TypeScript', 'Angular', 'NodeJS', 'MongoDB', 'ramda', 'd3', 'Monorepo', 'AngularJS'],
+  techStack: ['TypeScript', 'Angular 6', 'NodeJS', 'MongoDB', 'ramda', 'd3', 'Monorepo', 'AngularJS'],
 
   summary: `At the Rabobank I've worked on the investment module/sub-application within the mobile
                 banking application.`,
@@ -57,7 +57,7 @@ const growthKeeper: WeerdenProject = {
   title: 'Growth keeper',
   featured: false,
 
-  techStack: ['Angular', 'MongoDB', 'Express', 'NodeJS', 'TypeScript'],
+  techStack: ['Angular 4', 'MongoDB', 'Express', 'NodeJS', 'TypeScript'],
 
   summary: `Growth keeper was a side project I did in the winter of 2017 when the crypto market hype was at it's peak.`,
 
