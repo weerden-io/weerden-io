@@ -5,7 +5,7 @@ const vattenfall: WeerdenProject = {
   title: 'Vattenfall - Mijn Vattenfall',
   featured: true,
 
-  techStack: ['TypeScript', 'Angular 8, 9 & 10', 'nx', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'],
+  techStack: ['TypeScript', 'Angular 8, 9 & 10', 'nx', 'Storybook', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'],
 
   summary: `At Vattenfall I've worked on the redesign from Nuon to Vattenfall. The redesign contained rebuilding
                 the whole Mijn Vattenfall application from AngularJS to Angular and changing the look and feel from the
