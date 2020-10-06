@@ -1,6 +1,6 @@
 # weerden.io
 
-The weerden.io website!
+The weerden.io frontend!
 
 [![build status](https://github.com/jimenezweerden/weerden-io/workflows/lint-and-test/badge.svg)](https://github.com/jimenezweerden/weerden-io/actions)
 
