@@ -1,5 +1,5 @@
 on: push
-name: lint-and-test
+name: lint-and-test-frontend
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -24,6 +24,7 @@ jobs:
       # NOTE: prod. builds and deployments are done via Heroku
       - name: install lint and test
         run: |
+          cd ./frontend
           yarn
           yarn lint
           yarn test --watch=false
