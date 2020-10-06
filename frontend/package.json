@@ -1,12 +1,10 @@
 {
-  "name": "weerden-io",
+  "name": "weerden-io-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
-    "start": "node ../server.js",
     "build": "ng build",
-    "heroku-postbuild": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -28,8 +26,6 @@
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "bootstrap": "4.5.0",
     "classlist.js": "^1.1.20150312",
-    "express": "^4.17.1",
-    "express-sslify": "^1.2.0",
     "github-calendar": "^2.2.1",
     "jquery": "^3.5.1",
     "jquery-rss": "^4.3.0",
@@ -60,7 +56,6 @@
     "protractor": "~7.0.0",
     "puppeteer": "^5.0.0",
     "start-server-and-test": "^1.11.2",
-    "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
   }
