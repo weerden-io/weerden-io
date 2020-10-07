@@ -2,6 +2,10 @@
   "name": "weerden-io",
   "version": "1.0.0",
   "description": "weerden io website",
+  "engines": {
+    "node": "12.x",
+    "yarn": "1.x"
+  },
   "main": "server.ts",
   "scripts": {
     "start": "ts-node -T server/index.ts",
