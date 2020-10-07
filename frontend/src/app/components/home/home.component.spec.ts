@@ -51,13 +51,13 @@ describe('HomeComponent', () => {
     it('should initialize the home component', () => {
       component.projects = [fakeProject];
 
-      spyOn(component, 'loadRSSFeed');
+      spyOn(component, 'getRSSFeed');
       spyOn(component, 'initGithubCalendar');
       spyOn(component, 'resetLevelBar');
 
       component.ngOnInit();
 
-      expect(component.loadRSSFeed).toHaveBeenCalledTimes(1);
+      expect(component.getRSSFeed).toHaveBeenCalledTimes(1);
       expect(component.initGithubCalendar).toHaveBeenCalledTimes(1);
       expect(component.resetLevelBar).toHaveBeenCalledTimes(1);
       expect(component.featuredProject).toEqual(fakeProject);

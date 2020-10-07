@@ -195,10 +195,25 @@
       <div class="section-inner shadow-sm rounded">
         <h2 class="heading">Latest Blog Posts</h2>
 
-        <div id="rss-feeds" class="content"></div>
+        <div id="rss-feeds" class="content">
+          <div class="items">
+            <div class="item" *ngFor="let item of rssFeed?.items">
+              <div class='item'>
+                <h3 class='title'>
+                  <a [href]='item.link' target='_blank'>{{item.title}}</a></h3>
+                <div>
+                  <p>{{item.contentSnippet}}</p>
+                  <a class='more-link' [href]='item.link' target='_blank'>
+                    <i class='fas fa-external-link-alt'></i>Read more
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <hr class="divider">
-        <a class="mt-1 mb-3 btn btn-cta-primary" href="https://jimenezweerden.wordpress.com" target="_blank">
+        <a class="mt-1 mb-3 btn btn-cta-primary" [href]="rssFeed?.link" target="_blank">
           <i class="mr-1 fas fa-external-link-alt"></i>Visit blog
         </a>
 
