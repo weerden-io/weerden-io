@@ -5,7 +5,7 @@ const vattenfall: WeerdenProject = {
   title: 'Vattenfall - Mijn Vattenfall',
   featured: true,
 
-  techStack: ['TypeScript', 'Angular 8, 9 & 10', 'nx', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'],
+  techStack: ['TypeScript', 'Angular 8, 9 & 10', 'nx', 'Storybook', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'],
 
   summary: `At Vattenfall I've worked on the redesign from Nuon to Vattenfall. The redesign contained rebuilding
                 the whole Mijn Vattenfall application from AngularJS to Angular and changing the look and feel from the
@@ -31,7 +31,7 @@ const vattenfall: WeerdenProject = {
       alt: 'Mijn Vattenfall - Password forgotten'
     }
   ],
-  // url: 'https://www.vattenfall.nl/service/mijn-vattenfall'
+  url: 'https://www.vattenfall.nl/service/mijn-vattenfall'
 };
 
 const rabobank: WeerdenProject = {
@@ -39,7 +39,7 @@ const rabobank: WeerdenProject = {
   title: 'Rabobank - Mobile banking app (investment module)',
   featured: false,
 
-  techStack: ['TypeScript', 'Angular 6', 'NodeJS', 'MongoDB', 'ramda', 'd3', 'Monorepo', 'AngularJS'],
+  techStack: ['TypeScript', 'Angular 6', 'NodeJS', 'MongoDB', 'ramda', 'd3', 'lerna', 'Monorepo', 'AngularJS'],
 
   summary: `At the Rabobank I've worked on the investment module/sub-application within the mobile
                 banking application.`,

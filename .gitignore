@@ -1,13 +1,14 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+frontend/dist
+frontend/tmp
+frontend/out-tsc
 # Only exists if Bazel was run
-/bazel-out
+frontend/bazel-out
 
 # dependencies
+frontend/node_modules
 /node_modules
 
 # profiling files
