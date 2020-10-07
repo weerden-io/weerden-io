@@ -75,7 +75,7 @@ describe('HomeComponent', () => {
     spyOn(dependencies, 'GitHubCalendar');
     component.initGithubCalendar();
     expect(dependencies.GitHubCalendar).toHaveBeenCalledTimes(1);
-    expect(dependencies.GitHubCalendar).toHaveBeenCalledWith('#github-graph', 'jimenezweerden');
+    expect(dependencies.GitHubCalendar).toHaveBeenCalledWith('#github-graph', 'jimenezweerden', {responsive: true});
   });
 
   describe('openProjectDialog()', () => {

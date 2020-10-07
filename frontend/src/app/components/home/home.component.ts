@@ -48,16 +48,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.animateLevelBar();
   }
 
-  // TODO: remove
-  getTest() {
-    this.apiService.getTest()
-      .pipe(take(1))
-      .subscribe({
-        next: console.log,
-        error: console.log
-      });
-  }
-
   resetLevelBar(): void {
     $('.level-bar-inner').css('width', '0');
   }
@@ -76,6 +66,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   loadRSSFeed(): void {
+    // TODO: refactor and use own api for rss
     // @ts-ignore
     $('#rss-feeds').rss(
       'https://jimenezweerden.wordpress.com/feed/',
