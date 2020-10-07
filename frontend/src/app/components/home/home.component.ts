@@ -1,14 +1,13 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
+import * as Parser from 'rss-parser';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { take, takeUntil } from 'rxjs/operators';
+import { map, take, takeUntil } from 'rxjs/operators';
 import { from, Subject } from 'rxjs';
 import { ProjectComponent, WeerdenProject } from '../projects/project.component';
 import { projects } from './projects';
 import { ApiService } from '../../services/api.service';
-
-require('jquery-rss');
 
 // expose for testing
 export const dependencies = {
@@ -24,6 +23,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   modalRef: NgbModalRef;
   destroy$ = new Subject();
   projects: WeerdenProject[] = projects;
+  rssFeed: Parser.Output;
   featuredProject: WeerdenProject;
 
   constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadRSSFeed();
+    this.getRSSFeed();
     this.initGithubCalendar();
     this.resetLevelBar();
     this.featuredProject = this.projects.find(project => project.featured);
@@ -65,29 +65,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     dependencies.GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
   }
 
-  loadRSSFeed(): void {
-    // TODO: refactor and use own api for rss
-    // @ts-ignore
-    $('#rss-feeds').rss(
-      'https://jimenezweerden.wordpress.com/feed/',
-      {
-        limit: 3,
-        ssl: true,
-        layoutTemplate: `<div class='items'>{entries}</div>`,
-        entryTemplate: `
-        <div class='item'>
-        <h3 class='title'>
-        <a href='{url}' target='_blank'>{title}</a>
-        </h3>
-        <div>
-        <p>{shortBodyPlain}...</p>
-        <a class='more-link' href='{url}' target='_blank'>
-        <i class='fas fa-external-link-alt'></i>Read more</a>
-        </div>
-        </div>
-        `
-      }
-    );
+  getRSSFeed(): void {
+    this.apiService.getRSSFeed()
+      .pipe(
+        take(1),
+        map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as Parser.Output))
+      )
+      .subscribe({
+        next: (rssFeed: Parser.Output) => this.rssFeed = rssFeed,
+        error: console.error
+      });
   }
 
   openProjectDialog(project: WeerdenProject): void {
