@@ -6,6 +6,7 @@ import { take, takeUntil } from 'rxjs/operators';
 import { from, Subject } from 'rxjs';
 import { ProjectComponent, WeerdenProject } from '../projects/project.component';
 import { projects } from './projects';
+import { ApiService } from '../../services/api.service';
 
 require('jquery-rss');
 
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   projects: WeerdenProject[] = projects;
   featuredProject: WeerdenProject;
 
-  constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router) {
+  constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
     route.queryParams
       .pipe(takeUntil(this.destroy$))
       .subscribe((params: Params) => {
@@ -40,11 +41,21 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loadRSSFeed();
     this.initGithubCalendar();
     this.resetLevelBar();
+    this.getTest();
     this.featuredProject = this.projects.find(project => project.featured);
   }
 
   ngAfterViewInit(): void {
     this.animateLevelBar();
+  }
+
+  getTest() {
+    this.apiService.getTest()
+      .pipe(take(1))
+      .subscribe({
+        next: console.log,
+        error: console.log
+      })
   }
 
   resetLevelBar(): void {

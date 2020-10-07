@@ -13,4 +13,3 @@ Routes.init(app, express.Router());
 app.listen(port, () => {
   console.log(`Server listening on the port::${port} on ${process.env.NODE_ENV}`);
 });
-

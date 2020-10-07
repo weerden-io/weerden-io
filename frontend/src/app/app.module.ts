@@ -7,10 +7,12 @@ import { ProjectComponent } from './components/projects/project.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SafePipeModule } from 'safe-pipe';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,13 @@ import { SafePipeModule } from 'safe-pipe';
   imports: [
     CommonModule,
     RouterModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     SafePipeModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
