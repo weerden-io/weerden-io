@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { WeerdenProject } from '../projects/project.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -26,7 +27,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, CommonModule],
+      imports: [RouterTestingModule, HttpClientTestingModule, CommonModule],
       declarations: [HomeComponent]
     })
       .compileComponents();
