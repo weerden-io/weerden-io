@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "npx ng build --prod",
+    "postinstall": "npx @angular/cli@10.0.0 ng build --prod",
     "e2e-ci": "yarn start-server-and-test 'yarn serve' '4200' 'yarn e2e --headless'",
     "start-server-and-test": "start-server-and-test"
   },
