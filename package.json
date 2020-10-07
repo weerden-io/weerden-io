@@ -12,8 +12,7 @@
     "start-dev": "npm-run-all --parallel start-frontend-dev start-server-dev",
     "start-frontend-dev": "cd frontend && ng serve",
     "start-server-dev": "ts-node-dev --debug server/index.ts",
-    "heroku-postbuild": "cd frontend && yarn",
-    "ng": "frontend/node_modules/.bin/ng"
+    "heroku-postbuild": "cd frontend && yarn"
   },
   "repository": {
     "type": "git",
