@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loadRSSFeed();
     this.initGithubCalendar();
     this.resetLevelBar();
-    this.getTest();
     this.featuredProject = this.projects.find(project => project.featured);
   }
 
@@ -49,6 +48,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.animateLevelBar();
   }
 
+  // TODO: remove
   getTest() {
     this.apiService.getTest()
       .pipe(take(1))
