@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe({
         next: console.log,
         error: console.log
-      })
+      });
   }
 
   resetLevelBar(): void {
