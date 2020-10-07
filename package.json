@@ -13,7 +13,7 @@
     "start-frontend-dev": "cd frontend && ng serve",
     "start-server-dev": "ts-node-dev --debug server/index.ts",
     "postinstall": "cd frontend && yarn",
-    "heroku-postbuild": "cd frontend && ./frontend/node_modules/.bin/ng build --prod"
+    "heroku-postbuild": "cd frontend && ./node_modules/.bin/ng build --prod"
   },
   "repository": {
     "type": "git",
