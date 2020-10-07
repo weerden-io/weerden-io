@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   initGithubCalendar(): void {
-    dependencies.GitHubCalendar('#github-graph', 'jimenezweerden');
+    dependencies.GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
   }
 
   loadRSSFeed(): void {
