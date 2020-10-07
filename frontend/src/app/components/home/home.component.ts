@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
+import * as Parser from 'rss-parser';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { map, take, takeUntil } from 'rxjs/operators';
@@ -7,7 +8,6 @@ import { from, Subject } from 'rxjs';
 import { ProjectComponent, WeerdenProject } from '../projects/project.component';
 import { projects } from './projects';
 import { ApiService } from '../../services/api.service';
-import * as Parser from 'rss-parser';
 
 // expose for testing
 export const dependencies = {

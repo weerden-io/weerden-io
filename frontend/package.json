@@ -34,6 +34,7 @@
     "classlist.js": "^1.1.20150312",
     "github-calendar": "^2.2.1",
     "jquery": "^3.5.1",
+    "rss-parser": "^3.9.0",
     "rxjs": "~6.5.5",
     "safe-pipe": "^1.0.3",
     "tslib": "^2.0.0",
