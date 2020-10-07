@@ -81,9 +81,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       'https://jimenezweerden.wordpress.com/feed/',
       {
         limit: 3,
-        effect: 'slideFastSynced',
         ssl: true,
-        layoutTemplate: '<div class=\'items\'>{entries}</div>',
+        layoutTemplate: `<div class='items'>{entries}</div>`,
         entryTemplate: `
         <div class='item'>
         <h3 class='title'>
