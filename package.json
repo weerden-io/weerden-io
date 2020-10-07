@@ -4,7 +4,7 @@
   "description": "weerden io website",
   "main": "server.ts",
   "scripts": {
-    "start": "ts-node server/index.ts",
+    "start": "ts-node -T server/index.ts",
     "start-dev": "npm-run-all --parallel start-frontend-dev start-server-dev",
     "start-frontend-dev": "cd frontend && ng serve",
     "start-server-dev": "ts-node-dev --debug server/index.ts",
