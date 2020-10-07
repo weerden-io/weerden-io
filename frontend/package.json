@@ -15,6 +15,8 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.0",
+    "@angular/cli": "~10.0.0",
+    "@angular/compiler-cli": "~10.0.0",
     "@angular/common": "~10.0.0",
     "@angular/compiler": "~10.0.0",
     "@angular/core": "~10.0.0",
@@ -23,6 +25,7 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
+    "@angular-devkit/build-angular": "~0.1000.0",
     "@fortawesome/fontawesome-free": "^5.13.1",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "bootstrap": "4.5.0",
@@ -36,9 +39,6 @@
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1000.0",
-    "@angular/cli": "~10.0.0",
-    "@angular/compiler-cli": "~10.0.0",
     "@nrwl/cypress": "^9.5.1",
     "@nrwl/workspace": "^9.5.1",
     "@types/jasmine": "~3.5.0",
