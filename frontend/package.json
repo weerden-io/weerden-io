@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
-    "build": "npm run ng build --",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "npm run ng build --prod",
+    "build-prod": "ng build --prod",
+    "postinstall": "npm run build-prod",
     "e2e-ci": "yarn start-server-and-test 'yarn serve' '4200' 'yarn e2e --headless'",
     "start-server-and-test": "start-server-and-test"
   },
