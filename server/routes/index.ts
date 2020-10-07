@@ -1,13 +1,9 @@
 import * as express from 'express';
+import { ApiRoutes } from '../api';
 
 export class Routes {
   static init(app: express.Application, router: express.Router) {
-    const testResponse = ['test api route!'];
-    router
-      .route('/api/test')
-      .get((req: express.Request, res: express.Response) => {
-        res.json(testResponse);
-      });
+    ApiRoutes.init(app);
 
     router
       .route('*')
