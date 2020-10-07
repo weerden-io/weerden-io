@@ -28,6 +28,7 @@
     "@angular-devkit/build-angular": "~0.1000.0",
     "@fortawesome/fontawesome-free": "^5.13.1",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
+    "@types/jquery": "^3.5.0",
     "bootstrap": "4.5.0",
     "classlist.js": "^1.1.20150312",
     "github-calendar": "^2.2.1",
