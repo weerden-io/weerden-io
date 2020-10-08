@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   modalRef: NgbModalRef;
   destroy$ = new Subject();
   projects: WeerdenProject[] = projects;
-  rssFeed: Parser.Output;
+  rssFeed: Parser.Output | 'error';
   featuredProject: WeerdenProject;
 
   constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       )
       .subscribe({
         next: (rssFeed: Parser.Output) => this.rssFeed = rssFeed,
-        error: console.error
+        error: () => this.rssFeed = 'error'
       });
   }
 

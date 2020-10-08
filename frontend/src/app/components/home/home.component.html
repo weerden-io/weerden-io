@@ -195,7 +195,7 @@
       <div class="section-inner shadow-sm rounded">
         <h2 class="heading">Latest Blog Posts</h2>
 
-        <div id="rss-feeds" class="content">
+        <div *ngIf="rssFeed?.items" id="rss-feeds" class="content">
           <div class="items">
             <div class="item" *ngFor="let item of rssFeed?.items">
               <div class='item'>
@@ -210,6 +210,10 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div *ngIf="rssFeed === 'error'">
+          Unfortunately the server couldn't retrieve the latest blog posts 🙁
         </div>
 
         <hr class="divider">
