@@ -195,7 +195,7 @@
       <div class="section-inner shadow-sm rounded">
         <h2 class="heading">Latest Blog Posts</h2>
 
-        <div *ngIf="rssFeed?.items" id="rss-feeds" class="content">
+        <div *ngIf="rssFeed && rssFeed!== 'error'" id="rss-feeds" class="content">
           <div class="items">
             <div class="item" *ngFor="let item of rssFeed?.items">
               <div class='item'>
