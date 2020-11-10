@@ -10,14 +10,20 @@ export class RoutesConfig {
 
     process.env.NODE_ENV === 'production'
       ? setupProd(app)
-      : setupDev(app)
+      : setupDev(app);
   }
 }
 
 const setupProd = (app: express.Application) => {
+  // Always enforce https on prod
   app.use(enforce.HTTPS({trustProtoHeader: true}));
-}
+  app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+    req.secure
+      ? next()
+      : res.redirect('https://' + req.headers.host + req.url);
+  });
+};
 
 const setupDev = (app: express.Application) => {
   app.use(cors());
-}
+};

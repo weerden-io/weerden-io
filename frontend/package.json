@@ -32,7 +32,7 @@
     "@types/jquery": "^3.5.0",
     "bootstrap": "4.5.0",
     "classlist.js": "^1.1.20150312",
-    "github-calendar": "^2.2.1",
+    "github-calendar": "^2.2.6",
     "jquery": "^3.5.1",
     "rss-parser": "^3.9.0",
     "rxjs": "~6.5.5",
