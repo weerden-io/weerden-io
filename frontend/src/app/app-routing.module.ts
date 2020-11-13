@@ -10,7 +10,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {useHash: true, onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(routes, { useHash: true, onSameUrlNavigation: 'reload', relativeLinkResolution: 'legacy' })
   ]
 })
 export class AppRoutingModule {
