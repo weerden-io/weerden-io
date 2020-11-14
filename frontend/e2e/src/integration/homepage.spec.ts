@@ -63,26 +63,6 @@ describe('homePage', () => {
     cy.get(homePage.contactInfoSection).should('be.visible');
   });
 
-  describe('skills section', () => {
-    it('should exist', () => {
-      cy.get(homePage.skillsSection).should('exist');
-      cy.get(homePage.skillsSection).should('be.visible');
-    });
-
-    it('should list my skills', () => {
-      cy.get(homePage.skillSet).should('have.length', 6);
-    });
-
-    it('should have 2 tooltip icons', () => {
-      cy.get(homePage.tooltipIcon).should('have.length', 2);
-    });
-
-    it('should have a link pointing to my github profile', () => {
-      cy.get(`${homePage.skillsSection} .more-link`).should('exist');
-      cy.get(`${homePage.skillsSection} .more-link`).should('contain', 'More on GitHub');
-    });
-  });
-
   describe('languages section', () => {
     it('should exist', () => {
       cy.get(homePage.languagesSection).should('exist');

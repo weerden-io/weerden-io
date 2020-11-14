@@ -53,22 +53,13 @@ describe('HomeComponent', () => {
 
       spyOn(component, 'getRSSFeed');
       spyOn(component, 'initGithubCalendar');
-      spyOn(component, 'resetLevelBar');
 
       component.ngOnInit();
 
       expect(component.getRSSFeed).toHaveBeenCalledTimes(1);
       expect(component.initGithubCalendar).toHaveBeenCalledTimes(1);
-      expect(component.resetLevelBar).toHaveBeenCalledTimes(1);
       expect(component.featuredProject).toEqual(fakeProject);
     });
-  });
-
-  it('ngAfterViewInit()', () => {
-    spyOn(component, 'animateLevelBar');
-    component.ngAfterViewInit();
-
-    expect(component.animateLevelBar).toHaveBeenCalledTimes(1);
   });
 
   it('initGithubCalendar()', () => {

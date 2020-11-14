@@ -19,7 +19,7 @@ export const dependencies = {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
   modalRef: NgbModalRef;
   destroy$ = new Subject();
   projects: WeerdenProject[] = projects;
@@ -40,25 +40,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.getRSSFeed();
     this.initGithubCalendar();
-    this.resetLevelBar();
     this.featuredProject = this.projects.find(project => project.featured);
-  }
-
-  ngAfterViewInit(): void {
-    this.animateLevelBar();
-  }
-
-  resetLevelBar(): void {
-    $('.level-bar-inner').css('width', '0');
-  }
-
-  animateLevelBar(): void {
-    $('.level-bar-inner').each(function() {
-      const itemWidth = $(this).data('level');
-      $(this).animate({
-        width: itemWidth
-      }, 800);
-    });
   }
 
   initGithubCalendar(): void {
