@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
 import * as Parser from 'rss-parser';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
