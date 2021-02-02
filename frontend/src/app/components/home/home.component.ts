@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import * as GitHubCalendar from 'github-calendar';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { map, take, takeUntil } from 'rxjs/operators';
-import { from, Subject } from 'rxjs';
+import { map, take, takeUntil, catchError } from 'rxjs/operators';
+import { from, of, Subject } from 'rxjs';
 import { ProjectComponent } from '../projects/project.component';
 import { WeerdenProject } from '../projects/project.model';
 import { projects } from './projects';
@@ -23,10 +23,15 @@ export const dependencies = {
 })
 export class HomeComponent implements OnInit, OnDestroy {
   modalRef: NgbModalRef;
-  destroy$ = new Subject();
   projects: WeerdenProject[] = projects;
-  rssFeed: RssFeedResponse | 'error';
   featuredProject: WeerdenProject;
+
+  destroy$ = new Subject();
+  rssFeed$ = this.apiService.getRSSFeed()
+    .pipe(
+      map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as RssFeedResponse)),
+      catchError(() => of('error'))
+    );
 
   constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
     route.queryParams
@@ -40,25 +45,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.getRSSFeed();
     this.initGithubCalendar();
     this.featuredProject = this.projects.find(project => project.featured);
   }
 
   initGithubCalendar(): void {
     dependencies.GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
-  }
-
-  getRSSFeed(): void {
-    this.apiService.getRSSFeed()
-      .pipe(
-        take(1),
-        map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as RssFeedResponse))
-      )
-      .subscribe({
-        next: (rssFeed: RssFeedResponse) => this.rssFeed = rssFeed,
-        error: () => this.rssFeed = 'error'
-      });
   }
 
   openProjectDialog(project: WeerdenProject): void {

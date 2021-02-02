@@ -47,16 +47,21 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('has the following properties', () => {
+    expect(component.projects).toBeDefined();
+
+    expect(component.destroy$).toBeDefined();
+    expect(component.rssFeed$).toBeDefined();
+  });
+
   describe('ngOnInit()', () => {
     it('should initialize the home component', () => {
       component.projects = [fakeProject];
 
-      spyOn(component, 'getRSSFeed');
       spyOn(component, 'initGithubCalendar');
 
       component.ngOnInit();
 
-      expect(component.getRSSFeed).toHaveBeenCalledTimes(1);
       expect(component.initGithubCalendar).toHaveBeenCalledTimes(1);
       expect(component.featuredProject).toEqual(fakeProject);
     });
