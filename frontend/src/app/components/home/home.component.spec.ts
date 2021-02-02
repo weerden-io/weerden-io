@@ -4,7 +4,7 @@ import { dependencies, HomeComponent } from './home.component';
 import * as rxjs from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { WeerdenProject } from '../projects/project.component';
+import { WeerdenProject } from '../projects/project.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';

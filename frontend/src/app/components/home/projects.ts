@@ -1,4 +1,4 @@
-import { WeerdenProject } from '../projects/project.component';
+import { WeerdenProject } from '../projects/project.model';
 
 const vattenfall: WeerdenProject = {
   name: 'vattenfall',

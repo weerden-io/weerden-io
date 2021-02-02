@@ -1,11 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
 import * as Parser from 'rss-parser';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { map, take, takeUntil } from 'rxjs/operators';
 import { from, Subject } from 'rxjs';
-import { ProjectComponent, WeerdenProject } from '../projects/project.component';
+import { ProjectComponent } from '../projects/project.component';
+import { WeerdenProject } from '../projects/project.model';
 import { projects } from './projects';
 import { ApiService } from '../../services/api.service';
 
@@ -17,7 +18,8 @@ export const dependencies = {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit, OnDestroy {
   modalRef: NgbModalRef;
