@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import * as GitHubCalendar from 'github-calendar';
-import * as Parser from 'rss-parser';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { map, take, takeUntil } from 'rxjs/operators';
@@ -9,6 +8,7 @@ import { ProjectComponent } from '../projects/project.component';
 import { WeerdenProject } from '../projects/project.model';
 import { projects } from './projects';
 import { ApiService } from '../../services/api.service';
+import { RssFeedResponse } from '../../services/api.service.model';
 
 // expose for testing
 export const dependencies = {
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   modalRef: NgbModalRef;
   destroy$ = new Subject();
   projects: WeerdenProject[] = projects;
-  rssFeed: Parser.Output | 'error';
+  rssFeed: RssFeedResponse | 'error';
   featuredProject: WeerdenProject;
 
   constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
@@ -53,10 +53,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.apiService.getRSSFeed()
       .pipe(
         take(1),
-        map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as Parser.Output))
+        map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as RssFeedResponse))
       )
       .subscribe({
-        next: (rssFeed: Parser.Output) => this.rssFeed = rssFeed,
+        next: (rssFeed: RssFeedResponse) => this.rssFeed = rssFeed,
         error: () => this.rssFeed = 'error'
       });
   }
