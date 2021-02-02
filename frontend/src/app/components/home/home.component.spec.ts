@@ -49,6 +49,7 @@ describe('HomeComponent', () => {
 
   it('has the following properties', () => {
     expect(component.projects).toBeDefined();
+    expect(component.blogUrl).toBeDefined();
 
     expect(component.destroy$).toBeDefined();
     expect(component.rssFeed$).toBeDefined();

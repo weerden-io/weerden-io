@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   modalRef: NgbModalRef;
   projects: WeerdenProject[] = projects;
   featuredProject: WeerdenProject;
+  blogUrl = 'https://jimenezweerden.wordpress.com/';
 
   destroy$ = new Subject();
   rssFeed$ = this.apiService.getRSSFeed()

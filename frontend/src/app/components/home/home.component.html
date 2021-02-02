@@ -142,12 +142,6 @@
                 </div>
               </div>
             </div>
-
-            <hr class="divider">
-
-            <a class="mt-1 mb-3 btn btn-cta-primary" [href]="rssFeed?.link" target="_blank">
-              <i class="mr-1 fas fa-external-link-alt"></i>Visit blog
-            </a>
           </div>
 
           <div *ngIf="rssFeed === 'error'">
@@ -155,6 +149,11 @@
           </div>
         </div>
 
+        <hr class="divider">
+
+        <a class="mt-1 mb-3 btn btn-cta-primary" [href]="blogUrl" target="_blank">
+          <i class="mr-1 fas fa-external-link-alt"></i>Visit blog
+        </a>
       </div>
     </aside>
 
