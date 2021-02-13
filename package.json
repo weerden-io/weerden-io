@@ -6,7 +6,7 @@
     "node": "12.x",
     "yarn": "1.x"
   },
-  "main": "server.ts",
+  "main": "server/index.ts",
   "scripts": {
     "start": "ts-node -T server/index.ts",
     "start-dev": "npm-run-all --parallel start-frontend-dev start-server-dev",
