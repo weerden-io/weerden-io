@@ -34,8 +34,24 @@ export class HomeComponent implements OnInit, OnDestroy {
       catchError(() => of('error'))
     );
 
-  constructor(private modalService: NgbModal, private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
-    route.queryParams
+  constructor(private modalService: NgbModal,
+              private route: ActivatedRoute,
+              private router: Router,
+              private apiService: ApiService) {
+  }
+
+  ngOnInit(): void {
+    this.initGithubCalendar();
+    this.watchQueryParams();
+    this.featuredProject = this.projects.find(project => project.featured);
+  }
+
+  initGithubCalendar(): void {
+    dependencies.GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
+  }
+
+  watchQueryParams() {
+    this.route.queryParams
       .pipe(takeUntil(this.destroy$))
       .subscribe((params: Params) => {
         const project = this.projects.find(prjct => prjct.name === params.project);
@@ -45,15 +61,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit(): void {
-    this.initGithubCalendar();
-    this.featuredProject = this.projects.find(project => project.featured);
-  }
-
-  initGithubCalendar(): void {
-    dependencies.GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
-  }
-
   openProjectDialog(project: WeerdenProject): void {
     this.modalRef = this.modalService.open(ProjectComponent);
     this.modalRef.componentInstance.project = project;
@@ -61,10 +68,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     const result$ = from(this.modalRef.result);
     result$
       .pipe(take(1))
-      .subscribe(
-        () => this.removeQueryParams(),
-        () => this.removeQueryParams()
-      );
+      .subscribe()
+      .add(() => this.removeQueryParams());
   }
 
   removeQueryParams(): void {
