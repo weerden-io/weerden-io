@@ -7,7 +7,7 @@ npx yarn-audit-fix
 git add .
 git commit -m "chore(api): yarn audit fix"
 
-cd frontend && yarn
+cd ./frontend && yarn
 git add .
 git commit -m "chore(frontend): update dependencies"
 
