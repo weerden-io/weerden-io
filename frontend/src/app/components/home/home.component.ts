@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import * as GitHubCalendar from 'github-calendar';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { map, take, takeUntil, catchError } from 'rxjs/operators';
-import { from, of, Subject } from 'rxjs';
+import { map, take, catchError } from 'rxjs/operators';
+import { from, of, Subscription } from 'rxjs';
 import { ProjectComponent } from '../projects/project.component';
 import { WeerdenProject } from '../projects/project.model';
 import { projects } from './projects';
@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   projects: WeerdenProject[] = projects;
   featuredProject: WeerdenProject;
   blogUrl = 'https://jimenezweerden.wordpress.com/';
+  subscriptions = new Subscription();
 
-  destroy$ = new Subject();
   rssFeed$ = this.apiService.getRSSFeed()
     .pipe(
       map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as RssFeedResponse)),
@@ -51,14 +51,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   watchQueryParams() {
-    this.route.queryParams
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((params: Params) => {
-        const project = this.projects.find(prjct => prjct.name === params.project);
-        project
-          ? this.openProjectDialog(project)
-          : this.removeQueryParams();
-      });
+    this.subscriptions.add(
+      this.route.queryParams
+        .subscribe((params: Params) => {
+          const project = this.projects.find(prjct => prjct.name === params.project);
+          project
+            ? this.openProjectDialog(project)
+            : this.removeQueryParams();
+        })
+    );
   }
 
   openProjectDialog(project: WeerdenProject): void {
@@ -78,7 +79,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
+    this.subscriptions.unsubscribe();
   }
 }

@@ -53,7 +53,7 @@ describe('HomeComponent', () => {
     expect(component.projects).toBeDefined();
     expect(component.blogUrl).toBeDefined();
 
-    expect(component.destroy$).toBeDefined();
+    expect(component.subscriptions).toBeDefined();
     expect(component.rssFeed$).toBeDefined();
   });
 
