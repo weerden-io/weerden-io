@@ -10,7 +10,7 @@ import { projects } from './projects';
 import { ApiService } from '../../services/api.service';
 import { RssFeedResponse } from '../../services/api.service.model';
 
-// expose for testing
+// wrap in object for unit test
 export const dependencies = {
   GitHubCalendar
 };
