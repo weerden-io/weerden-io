@@ -10,11 +10,6 @@ import { projects } from './projects';
 import { ApiService } from '../../services/api.service';
 import { RssFeedResponse } from '../../services/api.service.model';
 
-// wrap in object for unit test
-export const dependencies = {
-  GitHubCalendar
-};
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,22 +17,22 @@ export const dependencies = {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  modalRef: NgbModalRef;
   projects: WeerdenProject[] = projects;
   featuredProject: WeerdenProject;
   blogUrl = 'https://jimenezweerden.wordpress.com/';
-  subscriptions = new Subscription();
-
   rssFeed$ = this.apiService.getRSSFeed()
     .pipe(
       map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as RssFeedResponse)),
       catchError(() => of('error'))
     );
 
-  constructor(private modalService: NgbModal,
-              private route: ActivatedRoute,
-              private router: Router,
-              private apiService: ApiService) {
+  private subscriptions = new Subscription();
+  private modalRef: NgbModalRef;
+
+  constructor(private readonly modalService: NgbModal,
+              private readonly route: ActivatedRoute,
+              private readonly router: Router,
+              private readonly apiService: ApiService) {
   }
 
   ngOnInit(): void {
@@ -46,11 +41,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.featuredProject = this.projects.find(project => project.featured);
   }
 
-  initGithubCalendar(): void {
-    dependencies.GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
-  watchQueryParams() {
+  private initGithubCalendar(): void {
+    GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
+  }
+
+  private watchQueryParams() {
     this.subscriptions.add(
       this.route.queryParams
         .subscribe((params: Params) => {
@@ -62,7 +61,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
   }
 
-  openProjectDialog(project: WeerdenProject): void {
+  private openProjectDialog(project: WeerdenProject): void {
     this.modalRef = this.modalService.open(ProjectComponent);
     this.modalRef.componentInstance.project = project;
 
@@ -73,12 +72,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       .add(() => this.removeQueryParams());
   }
 
-  removeQueryParams(): void {
+  private removeQueryParams(): void {
     this.modalRef?.close();
     this.router.navigate(['.'], {relativeTo: this.route});
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 }

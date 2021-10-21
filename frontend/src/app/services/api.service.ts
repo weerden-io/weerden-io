@@ -8,10 +8,9 @@ import { RssFeedResponse } from './api.service.model';
   providedIn: 'root'
 })
 export class ApiService {
+  constructor(private readonly http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  public getRSSFeed(): Observable<RssFeedResponse> {
+  getRSSFeed(): Observable<RssFeedResponse> {
     const url = `${environment.apiBaseUrl}/rss`;
     return this.http.get<RssFeedResponse>(url);
   }

@@ -11,7 +11,7 @@ import { WeerdenProject } from './project.model';
 export class ProjectComponent {
   @Input() project: WeerdenProject;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(private readonly activeModal: NgbActiveModal) {
   }
 
   close(reason: string): void {
