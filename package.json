@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "weerden io website",
   "engines": {
-    "node": "15.x",
+    "node": "16.x",
     "yarn": "1.x"
   },
   "main": "server/index.ts",
