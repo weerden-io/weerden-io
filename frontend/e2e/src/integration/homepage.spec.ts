@@ -49,7 +49,6 @@ describe('homePage', () => {
 
       cy.get(homePage.dialogClose).click();
       cy.get(homePage.dialog).should('not.exist');
-      cy.get(homePage.dialog).should('not.be.visible');
     });
   });
 
