@@ -5,6 +5,7 @@ frontend/dist
 frontend/tmp
 frontend/out-tsc
 frontend/coverage
+frontend/.angular
 # Only exists if Bazel was run
 frontend/bazel-out
 

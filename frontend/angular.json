@@ -1,5 +1,5 @@
 {
-  "$schema": "../node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "name": ""
         }
       },
       "root": "",
@@ -16,32 +17,6 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/weerden-io",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "node_modules/bootstrap/scss/bootstrap.scss",
-              "src/scss/styles.scss",
-              "node_modules/github-calendar/dist/github-calendar.css"
-            ],
-            "scripts": [
-              "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/jquery/dist/jquery.min.js"
-            ],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
-          },
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -50,28 +25,48 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
+              "outputPath": "dist/weerden-io",
+              "index": "src/index.html",
+              "main": "src/main.ts",
+              "polyfills": "src/polyfills.ts",
+              "tsConfig": "tsconfig.app.json",
+              "assets": [
+                "src/favicon.ico",
+                "src/assets"
+              ],
+              "styles": [
+                "node_modules/bootstrap/scss/bootstrap.scss",
+                "src/scss/styles.scss",
+                "node_modules/github-calendar/dist/github-calendar.css"
+              ],
+              "scripts": [
+                "node_modules/@fortawesome/fontawesome-free/js/all.js",
+                "node_modules/jquery/dist/jquery.min.js"
+              ]
+            },
+            "development": {
+              "fileReplacements": [],
+              "outputPath": "dist/weerden-io",
+              "index": "src/index.html",
+              "main": "src/main.ts",
+              "polyfills": "src/polyfills.ts",
+              "tsConfig": "tsconfig.app.json",
+              "assets": [
+                "src/favicon.ico",
+                "src/assets"
+              ],
+              "styles": [
+                "node_modules/bootstrap/scss/bootstrap.scss",
+                "src/scss/styles.scss",
+                "node_modules/github-calendar/dist/github-calendar.css"
+              ],
+              "scripts": [
+                "node_modules/@fortawesome/fontawesome-free/js/all.js",
+                "node_modules/jquery/dist/jquery.min.js"
               ]
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -108,15 +103,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
@@ -135,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "weerden-io"
+  "defaultProject": "weerden-io",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
