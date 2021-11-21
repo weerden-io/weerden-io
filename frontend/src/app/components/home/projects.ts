@@ -1,9 +1,37 @@
 import { WeerdenProject } from '../projects/project.model';
 
+const fedex: WeerdenProject = {
+  name: 'fedex',
+  title: 'FedEx - International shipment form',
+  featured: true,
+
+  techStack: ['TypeScript', 'Angular 11', 'RxJS', 'cypress', 'playwright', 'karma', 'Jenkins'],
+
+  summary: `At FedEx I’ve worked on making the international shipment platform mobile friendly and I’ve worked on implementing the healthcare
+  clinical trials shipment form where medical equipment can be shipped. Tech stack included: Angular (version 11), RxJS, Ngx, Gitlab, Jenkins
+  and custom internal tooling.`,
+
+  description: `At FedEx I’ve worked on making the international shipment platform mobile friendly and I’ve worked on implementing the healthcare
+  clinical trials shipment form where medical equipment can be shipped. Tech stack included: Angular (version 11), RxJS, Ngx, Gitlab, Jenkins
+  and custom internal tooling.`,
+
+  featuredImage: './assets/images/projects/fedex/fedex.png',
+  impressions: [
+    {
+      imageUrl: './assets/images/projects/fedex/fedex-shipment-form.png',
+      alt: 'FedEx - International shipment form'
+    },
+    {
+      imageUrl: './assets/images/projects/fedex/fedex-site-form.png',
+      alt: 'FedEx - Clinical Trials site form'
+    },
+  ],
+};
+
 const vattenfall: WeerdenProject = {
   name: 'vattenfall',
   title: 'Vattenfall - Mijn Vattenfall',
-  featured: true,
+  featured: false,
 
   techStack: ['TypeScript', 'Angular 8, 9 & 10', 'nx', 'Storybook', 'redux', 'RxJS', 'cypress', 'jest', 'Monorepo', 'AngularJS'],
 
@@ -85,4 +113,4 @@ const tippiq: WeerdenProject = {
   featuredImage: './assets/images/projects/tippiq/tippiq.png',
 };
 
-export const projects = [vattenfall, rabobank, growthKeeper, tippiq];
+export const projects = [fedex, vattenfall, rabobank, growthKeeper, tippiq];

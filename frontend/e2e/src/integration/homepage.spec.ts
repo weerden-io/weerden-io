@@ -33,12 +33,12 @@ describe('homePage', () => {
       cy.get(homePage.featuredProject).should('be.visible');
     });
 
-    it('should have 3 other project items', () => {
-      cy.get(homePage.projectItems).should('have.length', 3);
+    it('should have 4 other project items', () => {
+      cy.get(homePage.projectItems).should('have.length', 4);
     });
 
     it('should have "find out more" links', () => {
-      cy.get(homePage.findOutMoreLinks).should('have.length', 3);
+      cy.get(homePage.findOutMoreLinks).should('have.length', 4);
     });
 
     it('should open and close a dialog containing more information about a project', () => {
