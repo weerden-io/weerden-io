@@ -16,7 +16,16 @@ const fedex: WeerdenProject = {
   and custom internal tooling.`,
 
   featuredImage: './assets/images/projects/fedex/fedex.png',
-  impressions: [],
+  impressions: [
+    {
+      imageUrl: './assets/images/projects/fedex/fedex-shipment-form.png',
+      alt: 'FedEx - International shipment form'
+    },
+    {
+      imageUrl: './assets/images/projects/fedex/fedex-site-form.png',
+      alt: 'FedEx - Clinical Trials site form'
+    },
+  ],
 };
 
 const vattenfall: WeerdenProject = {
