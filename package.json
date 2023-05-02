@@ -13,7 +13,8 @@
     "start-frontend-dev": "cd frontend && ng serve",
     "start-server-dev": "ts-node-dev --debug server/index.ts",
     "server-init": "yarn && yarn post-install",
-    "post-install": "cd frontend && yarn && npm run build-prod"
+    "post-install": "cd frontend && yarn && yarn write-version && npm run build-prod",
+    "write-version": "ts-node scripts/write-commit-to-version.ts"
   },
   "repository": {
     "type": "git",
