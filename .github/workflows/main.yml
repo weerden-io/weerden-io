@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # NOTE: prod. builds and deployments are done via Heroku
+      # NOTE: prod. builds and deployments are done via Render
       - name: install lint and test
         run: |
           cd ./frontend
