@@ -1,8 +1,8 @@
-import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as cors from 'cors';
-import * as enforce from 'express-sslify';
-import * as compression from 'compression';
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import enforce from 'express-sslify';
+import compression from 'compression';
 
 export class RoutesConfig {
   static init(app: express.Application): void {

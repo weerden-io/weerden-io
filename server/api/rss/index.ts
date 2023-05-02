@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import * as Parser from 'rss-parser';
+import Parser from 'rss-parser';
 import { catchAsync } from '../utils/catch-async';
-import * as httpStatus from 'http-status';
+import httpStatus from 'http-status';
 import { ApiError } from '../utils/ApiError';
 
 const parser = new Parser();
