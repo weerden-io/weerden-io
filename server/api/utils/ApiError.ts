@@ -1,7 +1,7 @@
 export class ApiError extends Error {
   statusCode: number;
   isOperational: boolean;
-  stack: string;
+  stack: string | undefined;
 
   constructor(statusCode: number, message: string, isOperational: boolean = true, stack: string = '') {
     super(message);
