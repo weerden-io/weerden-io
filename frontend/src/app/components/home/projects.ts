@@ -87,10 +87,10 @@ const growthKeeper: WeerdenProject = {
 
   techStack: ['Angular 4', 'MongoDB', 'Express', 'NodeJS', 'TypeScript'],
 
-  summary: `Growth keeper was a side project I did in the winter of 2017 when the crypto market hype was at it's peak.`,
+  summary: `Growth keeper was a side project I did in the winter of 2017 when the "crypto" market bullrun was at its peak.`,
 
-  description: `Growth keeper was a side project I did in the winter of 2017 when the crypto market hype
-                was at it's peak. It's goal was to track and give scores to tokens that moved up in the coinmarketcap
+  description: `Growth keeper was a side project I did in the winter of 2017 when the "crypto" market bullrun
+                was at its peak. It's goal was to track and give scores to tokens that moved up in the coinmarketcap
                 ranking. Though it's not fully operational anymore, it's still a project I very much enjoyed
                 doing. 😄`,
   featuredImage: './assets/images/projects/growth-keeper/growth-keeper.jpeg',
