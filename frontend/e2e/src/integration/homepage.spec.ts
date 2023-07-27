@@ -52,10 +52,10 @@ describe('homePage', () => {
     });
   });
 
-  it(`should have the 'github' section`, () => {
-    cy.get(homePage.githubSection).should('exist');
-    cy.get(homePage.githubSection).should('be.visible');
-  });
+  // it(`should have the 'github' section`, () => {
+  //   cy.get(homePage.githubSection).should('exist');
+  //   cy.get(homePage.githubSection).should('be.visible');
+  // });
 
   it(`should have the 'contact info' section`, () => {
     cy.get(homePage.contactInfoSection).should('exist');

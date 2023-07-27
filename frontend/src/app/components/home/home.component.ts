@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import * as GitHubCalendar from 'github-calendar';
+// import * as GitHubCalendar from 'github-calendar';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { map, take, catchError } from 'rxjs/operators';
@@ -45,7 +45,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private initGithubCalendar(): void {
-    GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
+    // TODO: GithubCalendar dependency is broken, find an alternative way to render the graph
+    // GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
   }
 
   private watchQueryParams() {
