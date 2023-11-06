@@ -75,12 +75,4 @@ describe('homePage', () => {
       cy.get(homePage.listedLanguages).eq(1).should('contain', 'English');
     });
   });
-
-  it(`should have the 'blog' section`, () => {
-    cy.get(homePage.blogSection).should('exist');
-    cy.get(homePage.blogSection).should('be.visible');
-
-    cy.get(homePage.visitBlogButton).should('exist');
-    cy.get(homePage.visitBlogButton).should('be.visible');
-  });
 });

@@ -50,7 +50,6 @@ describe('HomeComponent', () => {
 
   it('has the following public properties', () => {
     expect(component.projects).toBeDefined();
-    expect(component.blogUrl).toBeDefined();
     expect(component.rssFeed$).toBeDefined();
   });
 

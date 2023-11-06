@@ -13,7 +13,6 @@ export const homePage = {
   tooltipIcon: '.level-title span svg',
   languagesSection: '.languages.section',
   listedLanguages: '.languages.section .item',
-  blogSection: '.blog.section',
   visitBlogButton: '.blog.section a.btn',
   dialog: '.modal-dialog',
   dialogClose: '.modal-header .close',
