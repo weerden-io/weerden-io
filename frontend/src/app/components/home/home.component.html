@@ -121,41 +121,5 @@
         </div>
       </div>
     </aside>
-
-    <aside class="blog aside section">
-      <div class="section-inner shadow-sm rounded">
-        <h2 class="heading">Latest Blog Posts</h2>
-
-        <div *ngIf="rssFeed$ | async as rssFeed">
-          <div *ngIf="rssFeed?.items" id="rss-feeds" class="content">
-            <div class="items">
-              <div class="item" *ngFor="let item of rssFeed?.items">
-                <div class='item'>
-                  <h3 class='title'>
-                    <a [href]='item.link' target='_blank'>{{item.title}}</a></h3>
-                  <div>
-                    <p>{{item.contentSnippet}}</p>
-                    <a class='more-link' [href]='item.link' target='_blank'>
-                      <i class='fas fa-external-link-alt'></i>Read more
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div *ngIf="rssFeed === 'error'">
-            Unfortunately the server couldn't retrieve the latest blog posts 🙁
-          </div>
-        </div>
-
-        <hr class="divider">
-
-        <a class="mt-1 mb-3 btn btn-cta-primary" [href]="blogUrl" target="_blank">
-          <i class="mr-1 fas fa-external-link-alt"></i>Visit blog
-        </a>
-      </div>
-    </aside>
-
   </div>
 </div>

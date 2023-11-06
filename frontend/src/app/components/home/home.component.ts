@@ -18,7 +18,6 @@ import { RssFeedResponse } from '../../services/api.service.model';
 export class HomeComponent implements OnInit, OnDestroy {
   projects: WeerdenProject[] = projects;
   featuredProject: WeerdenProject;
-  blogUrl = 'https://jimenezweerden.wordpress.com/';
   rssFeed$ = this.apiService.getRSSFeed()
     .pipe(
       map(rssFeed => ({...rssFeed, items: rssFeed.items.slice(0, 3)} as RssFeedResponse)),
@@ -46,7 +45,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private initGithubCalendar(): void {
     // TODO: GithubCalendar dependency is broken, find an alternative way to render the graph
-    // GitHubCalendar('#github-graph', 'jimenezweerden', {responsive: true});
+    // GitHubCalendar('#github-graph', 'weerden-io', {responsive: true});
   }
 
   private watchQueryParams() {
