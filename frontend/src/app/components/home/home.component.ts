@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 // import * as GitHubCalendar from 'github-calendar';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private readonly modalService: NgbModal,
               private readonly route: ActivatedRoute,
               private readonly router: Router,
-              private readonly apiService: ApiService) {
+              private readonly apiService: ApiService,
+              private readonly zone: NgZone
+  ) {
   }
 
   ngOnInit(): void {
@@ -73,6 +75,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private removeQueryParams(): void {
     this.modalRef?.close();
-    this.router.navigate(['.'], {relativeTo: this.route});
+    this.zone.run(() => {
+      this.router.navigate([], {relativeTo: this.route});
+    });
   }
 }
