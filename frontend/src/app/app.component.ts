@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { NavigationEnd, Router, RouterEvent } from '@angular/router';
+import { NavigationEnd, Router, Event } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.router.events
         .pipe(
-          filter((event: RouterEvent) => event instanceof NavigationEnd),
+          filter((event: Event) => event instanceof NavigationEnd),
           map(() => this.router),
         )
         .subscribe({
