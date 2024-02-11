@@ -1,0 +1,11 @@
+{
+  "fileServerFolder": ".",
+  "fixturesFolder": "./fixtures",
+  "integrationFolder": "./e2e",
+  "modifyObstructiveCode": false,
+  "video": true,
+  "videosFolder": "../dist/cypress/videos",
+  "screenshotsFolder": "../dist/cypress/screenshots",
+  "chromeWebSecurity": false,
+  "baseUrl": "http://localhost:4200"
+}
