@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JimenezWeerden/weerden-io.git"
+    "url": "git+https://github.com/weerden-io/weerden-io.git"
   },
   "author": "Jimenez Weerden",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JimenezWeerden/weerden-io/issues"
+    "url": "https://github.com/weerden-io/weerden-io/issues"
   },
-  "homepage": "https://github.com/JimenezWeerden/weerden-io#readme",
+  "homepage": "https://github.com/weerden-io/weerden-io#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
