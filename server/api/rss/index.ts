@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Parser from 'rss-parser';
+import Parser = require('rss-parser');
 import { catchAsync } from '../utils/catch-async';
 import httpStatus from 'http-status';
 import { ApiError } from '../utils/ApiError';
