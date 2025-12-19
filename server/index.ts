@@ -1,9 +1,10 @@
 import { config } from 'dotenv';
-import express from 'express';
+import express = require('express');
 import { RoutesConfig } from './config/routes.conf';
 import { Routes } from './routes';
 
 config();
+
 const app = express();
 const port = process.env.PORT || 4300;
 
