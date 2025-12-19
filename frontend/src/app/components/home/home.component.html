@@ -2,13 +2,10 @@
   <div class="primary col-lg-8 col-12">
     <section class="about section">
       <div class="section-inner shadow-sm rounded">
-        <h2 class="heading">About Me</h2>
+        <h2 class="heading">About</h2>
         <div class="content">
           <p>
-            Hello there. My name is Jimenez Weerden and I’m a fullstack Javascript/Typescript and Java developer from
-            Amsterdam. I’ll use this website to post my work, experiment with new tech and blog about the things I have
-            read and like. Have a
-            look around!
+            This website is a space to experiment with new technologies built with JavaScript/TypeScript.
           </p>
 
         </div>
@@ -16,109 +13,9 @@
     </section>
 
     <section class="latest section">
-      <div class="section-inner shadow-sm rounded">
-        <h2 class="heading">Latest Projects</h2>
-        <div class="content">
-
-          <div class="item featured text-center">
-            <div class="featured-image has-ribbon">
-              <a routerLink="" [queryParams]="{project: featuredProject.name}">
-                <img class="img-fluid project-image rounded shadow-sm"
-                     [src]="featuredProject.featuredImage" [alt]="featuredProject.title"/>
-              </a>
-              <div class="ribbon">
-                <div class="text">New</div>
-              </div>
-            </div>
-
-            <h3 routerLink="" [queryParams]="{project: featuredProject.name}" class="title mb-3">
-              <span class="link">{{featuredProject.title}}</span>
-            </h3>
-
-            <div class="desc text-left">
-              <p>{{featuredProject.summary}}</p>
-            </div>
-          </div>
-
-          <hr class="divider"/>
-
-          <div *ngFor="let project of projects">
-            <div *ngIf="!project.featured" class="item row">
-              <a class="col-md-4 col-12" routerLink="" [queryParams]="{project: project.name}">
-                <img class="img-fluid project-image rounded shadow-sm" [src]="project.featuredImage"
-                     [alt]="project.title"/>
-              </a>
-              <div class="desc col-md-8 col-12">
-                <h3 class="title">
-                  <a routerLink="" [queryParams]="{project: project.name}">{{project.title}}</a>
-                </h3>
-                <p class="mb-2">{{project.summary}}</p>
-                <p>
-                  <a class="more-link" routerLink="" [queryParams]="{project: project.name}">
-                    <i class="fas fa-external-link-alt"></i>Find out more
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
-
-<!--    <section class="github section">-->
-<!--      <div class="section-inner shadow-sm rounded">-->
-<!--        <h2 class="heading">My GitHub</h2>-->
-<!--        <div id="github-graph" class="github-graph"></div>-->
-<!--        <gh-contrib-calendar user="weerden-io"></gh-contrib-calendar>-->
-<!--      </div>-->
-<!--    </section>-->
   </div>
 
   <div class="secondary col-lg-4 col-12">
-    <aside class="info aside section">
-      <div class="section-inner shadow-sm rounded">
-        <h2 class="heading sr-only">Basic Information</h2>
-        <div class="content">
-          <ul class="list-unstyled">
-            <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>Amsterdam, NL</li>
-            <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span> -
-            </li>
-          </ul>
-        </div>
-      </div>
-    </aside>
-
-    <aside class="languages aside section">
-      <div class="section-inner shadow-sm rounded">
-        <h2 class="heading">Languages</h2>
-        <div class="content">
-          <ul class="list-unstyled">
-            <li class="item">
-              <span class="title"><strong>Dutch: </strong></span>
-              <span class="level">Native Speaker
-                  <br class="visible-xs"/>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  </span>
-            </li>
-            <li class="item">
-              <span class="title"><strong>English: </strong></span>
-              <span class="level">Excellent
-                  <br class="visible-sm visible-xs"/>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </aside>
   </div>
 </div>
