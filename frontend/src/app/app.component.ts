@@ -1,50 +1,48 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { NavigationEnd, Router, RouterEvent } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit, OnDestroy {
-  private subscriptions = new Subscription();
-
-  constructor(private readonly router: Router, private readonly titleService: Title) {
-  }
+export class AppComponent implements OnInit {
+  private readonly router = inject(Router);
+  private readonly titleService = inject(Title);
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
-    this.subscriptions.add(
-      this.router.events
-        .pipe(
-          filter((event: RouterEvent) => event instanceof NavigationEnd),
-          map(() => this.router),
-        )
-        .subscribe({
-          next: () => {
-            const title = this.getTitle(this.router.routerState, this.router.routerState.root).join(' | ');
-            this.titleService.setTitle(title);
-          }
-        }),
-    );
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(() => {
+        const title = this.getTitle(this.router.routerState.root).join(' | ');
+        this.titleService.setTitle(title);
+      });
   }
 
-  ngOnDestroy() {
-    this.subscriptions.unsubscribe();
-  }
+  private getTitle(route: ActivatedRoute): string[] {
+    const titles: string[] = [];
+    let current: ActivatedRoute | null = route;
 
-  private getTitle(state, parent): any[] {
-    const data = [];
-    if (parent && parent.snapshot.data && parent.snapshot.data.title) {
-      data.push(parent.snapshot.data.title);
+    while (current) {
+      const title = current.snapshot.data['title'] as string | undefined;
+      if (title) {
+        titles.push(title);
+      }
+      current = current.firstChild;
     }
 
-    if (state && parent) {
-      data.push(...this.getTitle(state, state.firstChild(parent)));
-    }
-    return data;
+    return titles;
   }
 }

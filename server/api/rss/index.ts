@@ -1,10 +1,11 @@
 import { Request, Response } from 'express';
-import Parser from 'rss-parser';
-import { catchAsync } from '../utils/catch-async';
 import httpStatus from 'http-status';
-import { ApiError } from '../utils/ApiError';
+import Parser from 'rss-parser';
 
-const parser = new Parser();
+import { ApiError } from '../utils/ApiError';
+import { catchAsync } from '../utils/catch-async';
+
+const parser = new Parser({ timeout: 10_000 });
 
 export const getRss = catchAsync(async (req: Request, res: Response) => {
   const rssFeed = await parser.parseURL('https://jimenezweerden.wordpress.com/feed/');

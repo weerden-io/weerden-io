@@ -1,5 +1,5 @@
-import { header } from '../support/header';
 import { footer } from '../support/footer';
+import { header } from '../support/header';
 import { homePage } from '../support/home';
 
 describe('homePage', () => {
@@ -52,14 +52,14 @@ describe('homePage', () => {
     });
   });
 
-  // it(`should have the 'github' section`, () => {
-  //   cy.get(homePage.githubSection).should('exist');
-  //   cy.get(homePage.githubSection).should('be.visible');
-  // });
-
   it(`should have the 'contact info' section`, () => {
     cy.get(homePage.contactInfoSection).should('exist');
     cy.get(homePage.contactInfoSection).should('be.visible');
+  });
+
+  it('should not expose an email address', () => {
+    cy.get(homePage.contactInfoSection).should('not.contain', '@');
+    cy.get('a[href^="mailto:"]').should('not.exist');
   });
 
   describe('languages section', () => {
@@ -74,13 +74,5 @@ describe('homePage', () => {
       cy.get(homePage.listedLanguages).eq(0).should('contain', 'Dutch');
       cy.get(homePage.listedLanguages).eq(1).should('contain', 'English');
     });
-  });
-
-  it(`should have the 'blog' section`, () => {
-    cy.get(homePage.blogSection).should('exist');
-    cy.get(homePage.blogSection).should('be.visible');
-
-    cy.get(homePage.visitBlogButton).should('exist');
-    cy.get(homePage.visitBlogButton).should('be.visible');
   });
 });

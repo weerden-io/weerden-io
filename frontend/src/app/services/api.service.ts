@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { environment } from '../../environments/environment';
 import { RssFeedResponse } from './api.service.model';
 
@@ -8,7 +9,7 @@ import { RssFeedResponse } from './api.service.model';
   providedIn: 'root'
 })
 export class ApiService {
-  constructor(private readonly http: HttpClient) {}
+  private readonly http = inject(HttpClient);
 
   getRSSFeed(): Observable<RssFeedResponse> {
     const url = `${environment.apiBaseUrl}/rss`;

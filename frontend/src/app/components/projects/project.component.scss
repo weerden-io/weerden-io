@@ -1,11 +1,12 @@
-@import 'src/scss/colors';
+@import '../../../scss/colors';
 
 .tech-badge {
   background-color: $color;
 }
 
 .project-section-inner {
-  label {
+  .project-label {
+    display: block;
     font-style: italic;
     color: darken($color, 30%);
     border-bottom: 1px dotted darken($color, 30%);

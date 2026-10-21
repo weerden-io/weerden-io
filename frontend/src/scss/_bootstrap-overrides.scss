@@ -1,6 +1,6 @@
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins/breakpoints';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins/breakpoints';
 
 .modal-dialog {
   @include media-breakpoint-up(md) {
@@ -8,14 +8,13 @@
   }
 
   .modal-header {
-
-    .close {
-      font-size: 28px;
+    .btn-close {
       padding: 5px 15px;
-    }
 
-    button[aria-label="Close"]:focus {
-      outline: none;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
     }
   }
 

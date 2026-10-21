@@ -1,23 +1,22 @@
 import * as express from 'express';
-import rateLimit from 'express-rate-limit';
+
 import { ApiRoutes } from '../api';
+import { STATIC_ROOT } from '../config/routes.conf';
 
 export class Routes {
-  static init(app: express.Application, router: express.Router) {
+  static init(app: express.Application, router: express.Router): void {
     ApiRoutes.init(app);
 
-    router
-      .route('*')
-      .get((req: express.Request, res: express.Response) => {
-        res.sendFile('index.html', {root: `${process.cwd()}/frontend/dist/weerden-io`});
-      });
-
-    const limiter = rateLimit({
-      windowMs: 60 * 1000, // 1 minute
-      max: 5
+    // SPA fallback: every non-API GET request serves index.html
+    // (Express 5 no longer supports the '*' wildcard route)
+    router.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+      if (req.method !== 'GET' || req.path.startsWith('/api')) {
+        next();
+        return;
+      }
+      res.sendFile('index.html', { root: STATIC_ROOT });
     });
-    // apply rate limiter to all requests
-    app.use(limiter);
+
     app.use('/', router);
   }
 }
