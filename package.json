@@ -15,7 +15,7 @@
     "server-init": "yarn && yarn post-install",
     "post-install": "yarn write-version && yarn build-frontend",
     "write-version": "tsx scripts/write-commit-to-version.ts",
-    "build-frontend": "cd frontend && yarn && npm run build-prod",
+    "build-frontend": "cd frontend && NODE_ENV=development CYPRESS_INSTALL_BINARY=0 yarn && npm run build-prod",
     "typecheck": "tsc --noEmit -p server/tsconfig.json"
   },
   "repository": {
