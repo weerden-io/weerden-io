@@ -2,6 +2,10 @@
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins/breakpoints';
 
+a {
+  text-decoration: none;
+}
+
 .modal-dialog {
   @include media-breakpoint-up(md) {
     max-width: 750px;

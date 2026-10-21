@@ -38,7 +38,7 @@ a {
   padding: 8px 16px;
   font-weight: bold;
 
-  .svg-inline--fa {
+  .fa-solid, .fa-brands {
     margin-right: 5px;
     position: relative;
     top: -2px;
@@ -120,7 +120,7 @@ a.dotted-link {
 
   .content {
     .more-link {
-      .svg-inline--fa {
+      .fa-solid, .fa-brands {
         margin-right: 5px;
         font-size: 14px;
         position: relative;
@@ -331,13 +331,9 @@ a.dotted-link {
 
 /* Info Section */
 .info {
-  .svg-inline--fa {
+  .fa-solid, .fa-brands {
     margin-right: 15px;
     color: lighten($color, 30%);
-
-    &.fa-envelope-o {
-      font-size: 14px;
-    }
   }
 
   ul {
@@ -394,7 +390,7 @@ a.dotted-link {
     }
   }
 
-  .svg-inline--fa {
+  .fa-solid, .fa-brands {
     margin-right: 3px;
     position: relative;
     top: -1px;
@@ -422,7 +418,7 @@ a.dotted-link {
         margin-bottom: 0;
       }
 
-      .svg-inline--fa {
+      .fa-solid, .fa-brands {
         color: lighten($color-2, 20%);
         margin-right: 15px;
       }
@@ -492,7 +488,7 @@ a.dotted-link {
       margin-bottom: 0;
     }
 
-    .svg-inline--fa {
+    .fa-solid, .fa-brands {
       color: lighten($color-2, 20%);
     }
   }
@@ -532,7 +528,7 @@ a.dotted-link {
   ul li {
     margin-bottom: 10px;
 
-    .svg-inline--fa {
+    .fa-solid, .fa-brands {
       margin-right: 5px;
     }
 
@@ -551,7 +547,7 @@ a.dotted-link {
   ul li {
     margin-bottom: 10px;
 
-    .svg-inline--fa {
+    .fa-solid, .fa-brands {
       margin-right: 5px;
       position: relative;
       top: -2px;
@@ -560,7 +556,7 @@ a.dotted-link {
     a {
       color: $color;
 
-      .svg-inline--fa {
+      .fa-solid, .fa-brands {
         color: lighten($color, 20%);
       }
 
